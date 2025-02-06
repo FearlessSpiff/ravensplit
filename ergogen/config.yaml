@@ -1,0 +1,409 @@
+units:
+  angle: -10
+  P: 0.6U
+points:
+  zones:
+    matrix:
+      # Fix placement on KiCAD sheet.
+      anchor:
+        shift: [100, -100]
+      rotate: angle
+      columns:
+        outer:
+          key:
+            column_net: C0
+          rows:
+            top:
+              skip: true
+        pinky:
+          key:
+            column_net: C1
+          rows:
+            top:
+              skip: true
+        ring:
+          key:
+            stagger: 0.25U
+            column_net: C2
+        middle:
+          key:
+            stagger: 0.25U
+            column_net: C3
+        index:
+          key:
+            stagger: -0.25U
+            column_net: C4
+        inner:
+          key:
+            stagger: -0.25U
+            column_net: C5
+      rows:
+        bottom:
+          padding: U
+          row_net: R2
+        home:
+          padding: U
+          row_net: R1
+        top:
+          padding: U
+          row_net: R0
+    thumbs:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [0.75U, -1.5U]
+        rotate: -8
+      columns:
+        inner:
+          key:
+            rotate: -8
+            shift: [0, -2]
+            column_net: C1
+        reachy:
+          key:
+            rotate: 3
+            shift: [-40, 3]
+            column_net: C0
+      rows:
+        thumb:
+          row_net: R3
+    mount-hole-middle:
+      anchor:
+        ref: thumbs_inner_thumb
+        shift: [0, 0]
+      key:
+        name: mount-hole-middle
+        width: 1
+        height: 1
+    mount-hole-inner-top:
+      anchor:
+        ref: matrix_inner_top
+        shift: [-0.5U, 0.2U]
+      key:
+        name: mount-hole-inner-top
+        width: 1
+        height: 1
+    mount-hole-inner-bottom:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [-0.5U, -0.2U]
+      key:
+        name: mount-hole-inner-bottom
+        width: 1
+        height: 1
+    mount-hole-middle-home:
+      anchor:
+        ref: matrix_middle_home
+        shift: [-0.5U, -0.35U]
+      key:
+        name: mount-hole-middle-home
+        width: 1
+        height: 1
+    mount-hole-pinky-home:
+      anchor:
+        ref: matrix_pinky_home
+        shift: [-0.5U, 0.2U]
+      key:
+        name: mount-hole-pinky-home
+        width: 1
+        height: 1
+    mount-hole-pinky-bottom:
+      anchor:
+        ref: matrix_pinky_bottom
+        shift: [-0.5U, -0.2U]
+      key:
+        name: mount-hole-pinky-bottom
+        width: 1
+        height: 1
+    mcu-solder-points:
+      anchor:
+        ref: matrix_inner_home
+        shift: [-7.6, 12]
+      key:
+        name: mcu-solder-points
+        width: 1
+        height: 1
+    power-switch-footprint:
+      anchor:
+        ref: matrix_outer_home
+        shift: [-9, 0]
+      key:
+        name: power-switch-footprint
+        width: 1
+        height: 1
+    reset-switch-footprint:
+      anchor:
+        ref: matrix_outer_home
+        shift: [-9, -10]
+      key:
+        name: reset-switch-footprint
+        width: 1
+        height: 1
+    ffc12-footprint:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [6, 6.5]
+      key:
+        name: ffc12-footprint
+        width: 1
+        height: 1
+outlines:
+  keycaps:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [U-0.5, U-0.5]
+  keys:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [14, 14]
+  keys-diodes-solder:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [13, 13]
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: matrix_outer_home
+          shift: [-P, 2.7P]
+        - ref: matrix_ring_top
+          shift: [-P, 0.65P]
+        - ref: matrix_ring_top
+          shift: [-P, P]
+        - ref: matrix_ring_top
+          shift: [0.65P, P]
+        - ref: matrix_middle_top
+          shift: [-P, P]
+        - ref: matrix_middle_top
+          shift: [P, P]
+        - ref: matrix_index_top
+          shift: [-0.65P, P]
+        - ref: matrix_index_top
+          shift: [P, P]
+        - ref: matrix_inner_top
+          shift: [-0.65P, P]
+        - ref: matrix_inner_top
+          shift: [P, P]
+        - ref: matrix_inner_bottom
+          shift: [P, -1P]
+        - ref: thumbs_inner_thumb
+          shift: [P, 1P]
+        - ref: thumbs_inner_thumb
+          shift: [P, -P]
+        - ref: thumbs_inner_thumb
+          shift: [-.9P, -P]
+        - ref: thumbs_reachy_thumb
+          shift: [0.65P, -P]
+        - ref: thumbs_reachy_thumb
+          shift: [-P, -P]
+        - ref: matrix_index_bottom
+          shift: [0.2P, -P]
+        - ref: matrix_index_bottom
+          shift: [-P, -P]
+        - ref: matrix_middle_bottom
+          shift: [0.65P, -P]
+        - ref: matrix_middle_bottom
+          shift: [-0.65P, -P]
+        - ref: matrix_ring_bottom
+          shift: [P, -P]
+        - ref: matrix_ring_bottom
+          shift: [-0.65P, -P]
+        - ref: matrix_pinky_bottom
+          shift: [P, -P]
+        - ref: matrix_outer_bottom
+          shift: [-P, -P]
+  mcu-top-cutout:
+    - what: polygon
+      operation: stack
+      fillet: 3
+      points:
+        - ref: matrix_inner_top
+          shift: [P, U]
+        - ref: matrix_inner_bottom
+          shift: [P, -1.1P]
+        - ref: matrix_inner_top
+          shift: [P, U]
+  top-plate:
+    - name: board
+    - name: keys
+      operation: subtract
+    - name: mcu-top-cutout
+      operation: subtract
+    - what: circle
+      radius: 1.1
+      where: /.*mount-hole.*/
+      operation: subtract
+  top-foam-plate:
+    - name: board
+    - name: keys
+      operation: subtract
+    - name: mcu-top-cutout
+      operation: subtract
+    - what: circle
+      radius: 2.15
+      where: /.*mount-hole.*/
+      operation: subtract
+  bottom-plate:
+    - name: board
+    - what: circle
+      radius: 1.1
+      where: /.*mount-hole.*/
+      operation: subtract
+  bottom-foam-plate:
+    - name: board
+    - name: keys-diodes-solder
+      operation: subtract
+    - what: circle
+      radius: 2.15
+      where: /.*mount-hole.*/
+      operation: subtract
+    - what: circle
+      radius: 2.15
+      where: /.*standoff.*/
+      operation: subtract
+    - what: rectangle
+      where: mcu-solder-points
+      size: [4, 33]
+      operation: subtract
+    - what: rectangle
+      where: power-switch-footprint
+      size: [14, 8]
+      operation: subtract
+    - what: rectangle
+      where: reset-switch-footprint
+      size: [14, 8]
+      operation: subtract
+  preview:
+    - name: board
+    - name: keycaps
+      operation: subtract
+pcbs:
+  ravensplit-board:
+    template: kicad8
+    outlines:
+      main:
+        outline: board
+    footprints:
+      ks33-switches:
+        what: ceoloide/switch_gateron_ks27_ks33
+        where:
+          - /matrix_.*/
+          - /thumbs_.*/
+        params:
+          solder: true
+          reversible: true
+          hotswap: false
+          include_keycap: true
+          keycap_height: 18
+          keycap_width: 18
+          from: "{{colrow}}"
+          to: "{{column_net}}"
+      diodes:
+        what: ceoloide/diode_tht_sod123
+        where:
+          - /matrix_.*/
+          - /thumbs_.*/
+        params:
+          reversible: true
+          include_thru_hole_smd_pads: true
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [-5, 0]
+          rotate: -90
+      mcu:
+        what: ceoloide/mcu_nice_nano
+        params:
+          reverse_mount: true
+          reversible: true
+          show_silk_labels_on_both_sides: false
+          P0: SO # White (008)
+          P1: SCK # Black (006)
+          P2: CS # Blue (017)
+          P3: DR # Green (020)
+          P4: SI # Red (022)
+          P5: C0
+          P6: C1
+          P7: C2
+          P8: C3
+          P9: C4
+          P10: C5
+          P21: R0
+          P20: R1
+          P19: R2
+          P18: R3
+        where:
+          ref: matrix_outer_home
+          rotate: 90
+          shift: [6, 20]
+      ffc-12pin:
+        what: FearlessSpiff/connector_ffc_12p_0_5mm
+        params:
+          P1: SCK # Black
+          P2: SO # White
+          P3: CS # Blue
+          P4: DR # Green
+          P5: SI # Red
+          P11: GND
+          P12: VCC
+        where:
+          ref: ffc12-footprint
+          rotate: 90
+          shift: [0, 0]
+      power-switch:
+        what: ceoloide/power_switch_smd_side
+        params:
+          reversible: true
+        where:
+          ref: power-switch-footprint
+          shift: [0, 0]
+          rotate: 180
+      reset-switch:
+        what: ceoloide/reset_switch_smd_side
+        params:
+          reversible: true
+        where:
+          ref: reset-switch-footprint
+          shift: [0, 0]
+          rotate: 90
+      battery-connector:
+        what: ceoloide/battery_connector_jst_ph_2
+        where:
+          ref: matrix_inner_top
+          shift: [13.5, -8]
+          rotate: 180
+      mounting-holes:
+        what: ceoloide/mounting_hole_npth
+        where: /.*mount-hole.*/
+        params:
+          hole_size: 4.8
+          hole_drill: 4.3
+      label:
+        what: ceoloide/utility_text
+        params:
+          text: ravensplit ver0.1
+        where:
+          ref: thumbs_inner_thumb
+          shift: [0, 13]
+          rotate: -17
+  ravensplit-top-plate:
+    template: kicad8
+    outlines:
+      main:
+        outline: top-plate
+    footprints:
+      mounting-holes:
+        what: ceoloide/mounting_hole_npth
+        where: /.*mount-hole.*/
+      label:
+        what: ceoloide/utility_text
+        params:
+          text: ravensplit ver0.1
+        where:
+          ref: thumbs_inner_thumb
