@@ -85,7 +85,7 @@ points:
     mount-hole-inner-bottom:
       anchor:
         ref: matrix_inner_bottom
-        shift: [-0.5U, -0.2U]
+        shift: [.35U, -0.8U]
       key:
         name: mount-hole-inner-bottom
         width: 1
@@ -223,12 +223,19 @@ outlines:
       operation: stack
       fillet: 3
       points:
-        - ref: matrix_inner_top
-          shift: [P, U]
-        - ref: matrix_inner_bottom
-          shift: [P, -1.1P]
-        - ref: matrix_inner_top
-          shift: [P, U]
+        - ref: matrix_outer_home
+          shift: [-4P, 3P]
+        - ref: matrix_ring_top
+          shift: [-P, 1P]
+        - ref: matrix_ring_home
+          shift: [-P, 0.5P]
+        - ref: matrix_outer_home
+          shift: [-1P, .9P]
+        - ref: matrix_outer_bottom
+          shift: [-1P, P]
+        - ref: matrix_outer_bottom
+          shift: [-4P, P]
+        
   top-plate:
     - name: board
     - name: keys
