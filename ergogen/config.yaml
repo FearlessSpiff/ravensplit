@@ -114,6 +114,22 @@ points:
         name: mcu-footprint
         width: 1
         height: 1
+    mcu-right-pins:
+      anchor:
+        ref: mcu-footprint
+        shift: [0, 6]
+      key:
+        name: mcu-right-pins
+        width: 1
+        height: 1
+    mcu-left-pins:
+      anchor:
+        ref: mcu-footprint
+        shift: [0, -6]
+      key:
+        name: mcu-left-pins
+        width: 1
+        height: 1
     power-switch-footprint:
       anchor:
         ref: matrix_outer_home
@@ -282,16 +298,20 @@ outlines:
       where: /.*standoff.*/
       operation: subtract
     - what: rectangle
-      where: mcu-solder-points
-      size: [4, 33]
+      where: mcu-right-pins
+      size: [34, 4]
+      operation: subtract
+    - what: rectangle
+      where: mcu-left-pins
+      size: [34, 4]
       operation: subtract
     - what: rectangle
       where: power-switch-footprint
-      size: [14, 8]
+      size: [4, 14]
       operation: subtract
     - what: rectangle
       where: reset-switch-footprint
-      size: [14, 8]
+      size: [4, 14]
       operation: subtract
   preview:
     - name: board
