@@ -394,21 +394,21 @@ pcbs:
           shift: [0, 0]
           rotate: 90
       battery-pad-plus-mcu-connector:
-        what: ceoloide/backlog/infused-kim/pads
+        what: ceoloide/backlog/mrzealot/pad
         params:
-          pads: 1
-          net_1: "BAT_P"
-          label_1: "+"
+          net: "BAT_P"
+          text: "+"
         where:
           ref: battery-pad-plus-mcu-footprint
+          rotate: 90
       battery-pad-minus-mcu-connector:
-        what: ceoloide/backlog/infused-kim/pads
+        what: ceoloide/backlog/mrzealot/pad
         params:
-          pads: 1
-          net_1: "GND"
-          label_1: "-"
+          net: "GND"
+          text: "-"
         where:
           ref: battery-pad-minus-mcu-footprint
+          rotate: 90
       mounting-holes:
         what: ceoloide/mounting_hole_npth
         where: /.*mount-hole.*/
