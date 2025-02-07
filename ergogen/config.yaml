@@ -66,14 +66,6 @@ points:
       rows:
         thumb:
           row_net: R3
-    mount-hole-middle:
-      anchor:
-        ref: thumbs_inner_thumb
-        shift: [0, 0]
-      key:
-        name: mount-hole-middle
-        width: 1
-        height: 1
     mount-hole-inner-top:
       anchor:
         ref: matrix_inner_top
