@@ -114,18 +114,18 @@ points:
         name: mount-hole-pinky-bottom
         width: 1
         height: 1
-    mcu-solder-points:
+    mcu-footprint:
       anchor:
-        ref: matrix_inner_home
-        shift: [-7.6, 12]
+        ref: matrix_ring_top
+        shift: [-32.5, -3.5]
       key:
-        name: mcu-solder-points
+        name: mcu-footprint
         width: 1
         height: 1
     power-switch-footprint:
       anchor:
         ref: matrix_outer_home
-        shift: [-9, 0]
+        shift: [-9.5, 0]
       key:
         name: power-switch-footprint
         width: 1
@@ -133,7 +133,7 @@ points:
     reset-switch-footprint:
       anchor:
         ref: matrix_outer_home
-        shift: [-9, -10]
+        shift: [-9.5, -10]
       key:
         name: reset-switch-footprint
         width: 1
@@ -144,6 +144,22 @@ points:
         shift: [6, 6.5]
       key:
         name: ffc12-footprint
+        width: 1
+        height: 1
+    battery-pad-plus-mcu-footprint:
+      anchor:
+        ref: mcu-footprint
+        shift: [19, -6]
+      key:
+        name: battery-pad-plus-mcu-footprint
+        width: 1
+        height: 1
+    battery-pad-minus-mcu-footprint:
+      anchor:
+        ref: mcu-footprint
+        shift: [19, 6]
+      key:
+        name: battery-pad-minus-mcu-footprint
         width: 1
         height: 1
 outlines:
@@ -235,7 +251,6 @@ outlines:
           shift: [-1P, P]
         - ref: matrix_outer_bottom
           shift: [-4P, P]
-        
   top-plate:
     - name: board
     - name: keys
@@ -346,9 +361,8 @@ pcbs:
           P19: R2
           P18: R3
         where:
-          ref: matrix_outer_home
+          ref: mcu-footprint
           rotate: 90
-          shift: [6, 20]
       ffc-12pin:
         what: FearlessSpiff/connector_ffc_12p_0_5mm
         params:
@@ -379,12 +393,22 @@ pcbs:
           ref: reset-switch-footprint
           shift: [0, 0]
           rotate: 90
-      battery-connector:
-        what: ceoloide/battery_connector_jst_ph_2
+      battery-pad-plus-mcu-connector:
+        what: ceoloide/backlog/infused-kim/pads
+        params:
+          pads: 1
+          net_1: "BAT_P"
+          label_1: "+"
         where:
-          ref: matrix_inner_top
-          shift: [13.5, -8]
-          rotate: 180
+          ref: battery-pad-plus-mcu-footprint
+      battery-pad-minus-mcu-connector:
+        what: ceoloide/backlog/infused-kim/pads
+        params:
+          pads: 1
+          net_1: "GND"
+          label_1: "-"
+        where:
+          ref: battery-pad-minus-mcu-footprint
       mounting-holes:
         what: ceoloide/mounting_hole_npth
         where: /.*mount-hole.*/
