@@ -1,6 +1,8 @@
 units:
   angle: -10
   P: 0.6U
+  caseOuter: 3
+  caseInner: 1
 points:
   zones:
     matrix:
@@ -242,6 +244,112 @@ outlines:
           shift: [P, -P]
         - ref: matrix_outer_bottom
           shift: [-P, -P]
+  caseOuter:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: matrix_outer_home
+          shift: [-P-caseOuter, 2.7P+caseOuter]
+        - ref: matrix_ring_top
+          shift: [-P-caseOuter, 0.65P+caseOuter]
+        - ref: matrix_ring_top
+          shift: [-P-caseOuter, P+caseOuter]
+        - ref: matrix_ring_top
+          shift: [0.65P-caseOuter, P+caseOuter]
+        - ref: matrix_middle_top
+          shift: [-P-caseOuter, P+caseOuter]
+        - ref: matrix_middle_top
+          shift: [P+caseOuter, P+caseOuter]
+        - ref: matrix_index_top
+          shift: [-0.65P+caseOuter, P+caseOuter]
+        - ref: matrix_index_top
+          shift: [P+caseOuter, P+caseOuter]
+        - ref: matrix_inner_top
+          shift: [-0.65P+caseOuter, P+caseOuter]
+        - ref: matrix_inner_top
+          shift: [P+caseOuter, P+caseOuter]
+        - ref: matrix_inner_bottom
+          shift: [P+caseOuter, -1P+caseOuter]
+        - ref: thumbs_inner_thumb
+          shift: [P+caseOuter, 1P+caseOuter]
+        - ref: thumbs_inner_thumb
+          shift: [P+caseOuter, -P-caseOuter]
+        - ref: thumbs_inner_thumb
+          shift: [-.9P-caseOuter, -P-caseOuter]
+        - ref: thumbs_reachy_thumb
+          shift: [0.65P-caseOuter, -P-caseOuter]
+        - ref: thumbs_reachy_thumb
+          shift: [-P-caseOuter, -P-caseOuter]
+        - ref: matrix_index_bottom
+          shift: [0.2P-caseOuter, -P-caseOuter]
+        - ref: matrix_index_bottom
+          shift: [-P-caseOuter, -P-caseOuter]
+        - ref: matrix_middle_bottom
+          shift: [0.65P-caseOuter, -P-caseOuter]
+        - ref: matrix_middle_bottom
+          shift: [-0.65P+caseOuter, -P-caseOuter]
+        - ref: matrix_ring_bottom
+          shift: [P+caseOuter, -P-caseOuter]
+        - ref: matrix_ring_bottom
+          shift: [-0.65P+caseOuter, -P-caseOuter]
+        - ref: matrix_pinky_bottom
+          shift: [P+caseOuter, -P-caseOuter]
+        - ref: matrix_outer_bottom
+          shift: [-P-caseOuter, -P-caseOuter]
+  caseInner:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: matrix_outer_home
+          shift: [-P-caseInner, 2.7P+caseInner]
+        - ref: matrix_ring_top
+          shift: [-P-caseInner, 0.65P+caseInner]
+        - ref: matrix_ring_top
+          shift: [-P-caseInner, P+caseInner]
+        - ref: matrix_ring_top
+          shift: [0.65P-caseInner, P+caseInner]
+        - ref: matrix_middle_top
+          shift: [-P-caseInner, P+caseInner]
+        - ref: matrix_middle_top
+          shift: [P+caseInner, P+caseInner]
+        - ref: matrix_index_top
+          shift: [-0.65P+caseInner, P+caseInner]
+        - ref: matrix_index_top
+          shift: [P+caseInner, P+caseInner]
+        - ref: matrix_inner_top
+          shift: [-0.65P+caseInner, P+caseInner]
+        - ref: matrix_inner_top
+          shift: [P+caseInner, P+caseInner]
+        - ref: matrix_inner_bottom
+          shift: [P+caseInner, -1P+caseInner]
+        - ref: thumbs_inner_thumb
+          shift: [P+caseInner, 1P+caseInner]
+        - ref: thumbs_inner_thumb
+          shift: [P+caseInner, -P-caseInner]
+        - ref: thumbs_inner_thumb
+          shift: [-.9P-caseInner, -P-caseInner]
+        - ref: thumbs_reachy_thumb
+          shift: [0.65P-caseInner, -P-caseInner]
+        - ref: thumbs_reachy_thumb
+          shift: [-P-caseInner, -P-caseInner]
+        - ref: matrix_index_bottom
+          shift: [0.2P-caseInner, -P-caseInner]
+        - ref: matrix_index_bottom
+          shift: [-P-caseInner, -P-caseInner]
+        - ref: matrix_middle_bottom
+          shift: [0.65P-caseInner, -P-caseInner]
+        - ref: matrix_middle_bottom
+          shift: [-0.65P+caseInner, -P-caseInner]
+        - ref: matrix_ring_bottom
+          shift: [P+caseInner, -P-caseInner]
+        - ref: matrix_ring_bottom
+          shift: [-0.65P+caseInner, -P-caseInner]
+        - ref: matrix_pinky_bottom
+          shift: [P+caseInner, -P-caseInner]
+        - ref: matrix_outer_bottom
+          shift: [-P-caseInner, -P-caseInner]
   mcu-top-cutout:
     - what: polygon
       operation: stack
@@ -259,6 +367,10 @@ outlines:
           shift: [-1P, P]
         - ref: matrix_outer_bottom
           shift: [-4P, P]
+  caseWall:
+    - name: caseOuter
+    - name: caseInner
+      operation: subtract
   top-plate:
     - name: board
     - name: keys
