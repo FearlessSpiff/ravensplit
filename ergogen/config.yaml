@@ -1,8 +1,8 @@
 units:
   angle: -10
   P: 0.6U
-  caseOuter: 3
-  caseInner: 1
+  caseOuter: 2.2
+  caseInner: 0.6
 points:
   zones:
     matrix:
@@ -429,6 +429,30 @@ outlines:
     - name: board
     - name: keycaps
       operation: subtract
+cases:
+  _bottom:
+    - name: caseInner
+      extrude: 1
+  _outerWall:
+    - name: caseOuter
+      extrude: 6.5
+  _innerWall:
+    - name: caseInner
+      extrude: 6.5
+  _wall:
+    - what: case
+      name: _outerWall
+      operation: add
+    - what: case
+      name: _innerWall
+      operation: subtract
+  LeftCase:
+    - what: case
+      name: _bottom
+      operation: add
+    - what: case
+      name: _wall
+      operation: add
 pcbs:
   ravensplit-board:
     template: kicad8
