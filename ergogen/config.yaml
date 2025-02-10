@@ -110,6 +110,46 @@ points:
         name: mount-hole-pinky-bottom
         width: 1
         height: 1
+    ffc12-footprint:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [6, 6.5]
+      key:
+        name: ffc12-footprint
+        width: 1
+        height: 1
+    cirque-hole-top-right:
+      anchor:
+        ref: ffc12-footprint
+        shift: [20, -10]
+      key:
+        name: cirque-hole-top-right
+        width: 1
+        height: 1
+    cirque-hole-top-left:
+      anchor:
+        ref: ffc12-footprint
+        shift: [8, 17.5]
+      key:
+        name: cirque-hole-top-left
+        width: 1
+        height: 1
+    cirque-hole-bottom-left:
+      anchor:
+        ref: ffc12-footprint
+        shift: [8, -17.5]
+      key:
+        name: cirque-hole-bottom-left
+        width: 1
+        height: 1
+    cirque-hole-bottom-right:
+      anchor:
+        ref: ffc12-footprint
+        shift: [20, 10]
+      key:
+        name: cirque-hole-bottom-right
+        width: 1
+        height: 1
     mcu-footprint:
       anchor:
         ref: matrix_ring_top
@@ -132,14 +172,6 @@ points:
         shift: [-9.5, -10]
       key:
         name: reset-switch-footprint
-        width: 1
-        height: 1
-    ffc12-footprint:
-      anchor:
-        ref: matrix_inner_bottom
-        shift: [6, 6.5]
-      key:
-        name: ffc12-footprint
         width: 1
         height: 1
     battery-pad-plus-mcu-footprint:
@@ -336,6 +368,40 @@ outlines:
           shift: [P+caseInner, -P-caseInner]
         - ref: matrix_outer_bottom
           shift: [-P-caseInner, -P-caseInner]
+  caseRightExtensionInner:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: ffc12-footprint
+          shift: [-10, 30]
+        - ref: ffc12-footprint
+          shift: [24, 20]
+        - ref: ffc12-footprint
+          shift: [24, -20]
+        - ref: ffc12-footprint
+          shift: [-10, -30]
+  caseRightExtensionOuter:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: ffc12-footprint
+          shift: [-10-caseOuter, 30+caseOuter]
+        - ref: ffc12-footprint
+          shift: [24+caseOuter, 20+caseOuter]
+        - ref: ffc12-footprint
+          shift: [24+caseOuter, -20-caseOuter]
+        - ref: ffc12-footprint
+          shift: [-10-caseOuter, -30-caseOuter]
+  caseInnerRight:
+    - name: caseInnerLeft
+    - name: caseRightExtensionInner
+      operation: add
+  caseOuterRight:
+    - name: caseOuterLeft
+    - name: caseRightExtensionOuter
+      operation: add
   mcu-top-cutout:
     - what: polygon
       operation: stack
@@ -364,7 +430,25 @@ outlines:
   caseHolesLeft:
     - what: circle
       radius: caseHoleRadius
-      where: /.*mount-hole.*/    
+      where: /.*mount-hole.*/
+  caseWallRight:
+    - name: caseOuterRight
+    - name: caseInnerRight
+      operation: subtract
+  caseStandoffsRight:
+    - what: circle
+      radius: caseStandoffRadius
+      where: /.*mount-hole.*/
+    - what: circle
+      radius: caseStandoffRadius
+      where: /.*cirque-hole.*/
+  caseHolesRight:
+    - what: circle
+      radius: caseHoleRadius
+      where: /.*mount-hole.*/
+    - what: circle
+      radius: caseHoleRadius
+      where: /.*cirque-hole.*/
   top-plate:
     - name: board
     - name: keys
@@ -424,6 +508,7 @@ outlines:
     - name: keycaps
       operation: subtract
 cases:
+  ## LEFT CASE
   _holesLeft:
     - name: caseHolesLeft
       extrude: 6.5
@@ -459,6 +544,43 @@ cases:
     - what: case
       name: _wallLeft
       operation: add
+  ## RIGHT CASE
+  _holesRight:
+    - name: caseHolesRight
+      extrude: 6.5
+  _standoffsRight:
+    - name: caseStandoffsRight
+      extrude: 6.5
+  _bottomRight:
+    - name: caseInnerRight
+      extrude: 1
+  _outerWallRight:
+    - name: caseOuterRight
+      extrude: 8.5
+  _innerWallRight:
+    - name: caseInnerRight
+      extrude: 8.5
+  _wallRight:
+    - what: case
+      name: _outerWallRight
+      operation: add
+    - what: case
+      name: _innerWallRight
+      operation: subtract
+  RightCase:
+    - what: case
+      name: _standoffsRight
+      operation: add
+    - what: case
+      name: _holesRight
+      operation: subtract
+    - what: case
+      name: _bottomRight
+      operation: add
+    - what: case
+      name: _wallRight
+      operation: add
+
 pcbs:
   ravensplit-board:
     template: kicad8
