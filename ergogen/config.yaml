@@ -1,8 +1,8 @@
 units:
   angle: -10
-  P: 0.6U
-  caseOuter: 2.2
-  caseInner: 0.6
+  P: 0.53U
+  caseOuter: 1.9
+  caseInner: 0.3
   caseStandoffRadius: 1.75
   caseHoleRadius: 1
 points:
@@ -199,11 +199,11 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_home
-          shift: [-P, 2.7P]
+          shift: [-P, 3P]
         - ref: matrix_ring_top
           shift: [-P, 0.65P]
         - ref: matrix_ring_top
-          shift: [-P, P]
+          shift: [-0.9P, P]
         - ref: matrix_ring_top
           shift: [0.65P, P]
         - ref: matrix_middle_top
@@ -252,11 +252,11 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_home
-          shift: [-P-caseOuter, 2.7P+caseOuter]
+          shift: [-P-caseOuter, 3P+caseOuter]
         - ref: matrix_ring_top
           shift: [-P-caseOuter, 0.65P+caseOuter]
         - ref: matrix_ring_top
-          shift: [-P-caseOuter, P+caseOuter]
+          shift: [-0.9P-caseOuter, P+caseOuter]
         - ref: matrix_ring_top
           shift: [0.65P-caseOuter, P+caseOuter]
         - ref: matrix_middle_top
@@ -305,11 +305,11 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_home
-          shift: [-P-caseInner, 2.7P+caseInner]
+          shift: [-P-caseInner, 3P+caseInner]
         - ref: matrix_ring_top
           shift: [-P-caseInner, 0.65P+caseInner]
         - ref: matrix_ring_top
-          shift: [-P-caseInner, P+caseInner]
+          shift: [-0.9P-caseInner, P+caseInner]
         - ref: matrix_ring_top
           shift: [0.65P-caseInner, P+caseInner]
         - ref: matrix_middle_top
@@ -360,11 +360,11 @@ outlines:
         - ref: matrix_outer_home
           shift: [-4P, 3P]
         - ref: matrix_ring_top
-          shift: [-P, 1P]
+          shift: [-0.93P, 2P]
         - ref: matrix_ring_home
           shift: [-P, 0.5P]
         - ref: matrix_outer_home
-          shift: [-1P, .9P]
+          shift: [-1P, 1P]
         - ref: matrix_outer_bottom
           shift: [-1P, P]
         - ref: matrix_outer_bottom
