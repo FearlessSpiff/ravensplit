@@ -3,6 +3,8 @@ units:
   P: 0.6U
   caseOuter: 2.2
   caseInner: 0.6
+  caseStandoffRadius: 1.75
+  caseHoleRadius: 1
 points:
   zones:
     matrix:
@@ -244,7 +246,7 @@ outlines:
           shift: [P, -P]
         - ref: matrix_outer_bottom
           shift: [-P, -P]
-  caseOuter:
+  caseOuterLeft:
     - what: polygon
       operation: stack
       fillet: 2
@@ -297,7 +299,7 @@ outlines:
           shift: [P+caseOuter, -P-caseOuter]
         - ref: matrix_outer_bottom
           shift: [-P-caseOuter, -P-caseOuter]
-  caseInner:
+  caseInnerLeft:
     - what: polygon
       operation: stack
       fillet: 2
@@ -367,10 +369,18 @@ outlines:
           shift: [-1P, P]
         - ref: matrix_outer_bottom
           shift: [-4P, P]
-  caseWall:
-    - name: caseOuter
-    - name: caseInner
+  caseWallLeft:
+    - name: caseOuterLeft
+    - name: caseInnerLeft
       operation: subtract
+  caseStandoffsLeft:
+    - what: circle
+      radius: caseStandoffRadius
+      where: /.*mount-hole.*/
+  caseHolesLeft:
+    - what: circle
+      radius: caseHoleRadius
+      where: /.*mount-hole.*/    
   top-plate:
     - name: board
     - name: keys
@@ -430,28 +440,40 @@ outlines:
     - name: keycaps
       operation: subtract
 cases:
-  _bottom:
-    - name: caseInner
+  _holesLeft:
+    - name: caseHolesLeft
+      extrude: 6.5
+  _standoffsLeft:
+    - name: caseStandoffsLeft
+      extrude: 6.5
+  _bottomLeft:
+    - name: caseInnerLeft
       extrude: 1
-  _outerWall:
-    - name: caseOuter
-      extrude: 6.5
-  _innerWall:
-    - name: caseInner
-      extrude: 6.5
-  _wall:
+  _outerWallLeft:
+    - name: caseOuterLeft
+      extrude: 8.5
+  _innerWallLeft:
+    - name: caseInnerLeft
+      extrude: 8.5
+  _wallLeft:
     - what: case
-      name: _outerWall
+      name: _outerWallLeft
       operation: add
     - what: case
-      name: _innerWall
+      name: _innerWallLeft
       operation: subtract
   LeftCase:
     - what: case
-      name: _bottom
+      name: _standoffsLeft
       operation: add
     - what: case
-      name: _wall
+      name: _holesLeft
+      operation: subtract
+    - what: case
+      name: _bottomLeft
+      operation: add
+    - what: case
+      name: _wallLeft
       operation: add
 pcbs:
   ravensplit-board:
