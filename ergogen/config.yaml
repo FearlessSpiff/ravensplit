@@ -113,25 +113,9 @@ points:
     mcu-footprint:
       anchor:
         ref: matrix_ring_top
-        shift: [-32.5, -3.5]
+        shift: [-32.5, -2]
       key:
         name: mcu-footprint
-        width: 1
-        height: 1
-    mcu-right-pins:
-      anchor:
-        ref: mcu-footprint
-        shift: [0, 6]
-      key:
-        name: mcu-right-pins
-        width: 1
-        height: 1
-    mcu-left-pins:
-      anchor:
-        ref: mcu-footprint
-        shift: [0, -6]
-      key:
-        name: mcu-left-pins
         width: 1
         height: 1
     power-switch-footprint:
@@ -199,9 +183,9 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_home
-          shift: [-P, 3P]
+          shift: [-P, 3.2P]
         - ref: matrix_ring_top
-          shift: [-P, 0.65P]
+          shift: [-P, 0.85P]
         - ref: matrix_ring_top
           shift: [-0.9P, P]
         - ref: matrix_ring_top
@@ -252,9 +236,9 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_home
-          shift: [-P-caseOuter, 3P+caseOuter]
+          shift: [-P-caseOuter, 3.2P+caseOuter]
         - ref: matrix_ring_top
-          shift: [-P-caseOuter, 0.65P+caseOuter]
+          shift: [-P-caseOuter, 0.85P+caseOuter]
         - ref: matrix_ring_top
           shift: [-0.9P-caseOuter, P+caseOuter]
         - ref: matrix_ring_top
@@ -305,9 +289,9 @@ outlines:
       fillet: 2
       points:
         - ref: matrix_outer_home
-          shift: [-P-caseInner, 3P+caseInner]
+          shift: [-P-caseInner, 3.2P+caseInner]
         - ref: matrix_ring_top
-          shift: [-P-caseInner, 0.65P+caseInner]
+          shift: [-P-caseInner, 0.85P+caseInner]
         - ref: matrix_ring_top
           shift: [-0.9P-caseInner, P+caseInner]
         - ref: matrix_ring_top
