@@ -130,7 +130,7 @@ points:
     cirque-hole-top-left:
       anchor:
         ref: ffc12-footprint
-        shift: [8, 17.5]
+        shift: [8, 16]
       key:
         name: cirque-hole-top-left
         width: 1
@@ -138,7 +138,7 @@ points:
     cirque-hole-bottom-left:
       anchor:
         ref: ffc12-footprint
-        shift: [8, -17.5]
+        shift: [8, -16]
       key:
         name: cirque-hole-bottom-left
         width: 1
@@ -518,6 +518,14 @@ outlines:
       where: reset-switch-footprint
       size: [4, 14]
       operation: subtract
+  cirqueHolderHelper:
+    - name: caseRightExtensionOuter
+    - name: top-plate
+      operation: subtract
+    - what: circle
+      radius: 1.15
+      where: /.*cirque-hole.*/
+      operation: subtract
   preview:
     - name: board
     - name: keycaps
@@ -565,16 +573,16 @@ cases:
       extrude: 6.5
   _cirqueHoles:
     - name: cirqueHoles
-      extrude: 10.5
+      extrude: 8.6
   _standoffsRight:
     - name: caseStandoffsRight
       extrude: 6.5
   _cirqueStandoffsLeft:
     - name: cirqueStandoffsLeft
-      extrude: 10.5
+      extrude: 8.6
   _cirqueStandoffsRight:
     - name: cirqueStandoffsRight
-      extrude: 8.5
+      extrude: 8.6
   _bottomRight:
     - name: caseInnerRight
       extrude: 1
