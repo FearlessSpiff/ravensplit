@@ -432,6 +432,18 @@ outlines:
     - what: circle
       radius: caseHoleRadius
       where: /.*mount-hole.*/
+  caseCutoutPower:
+    - what: rectangle
+      size: [4, 10]
+      where:
+        - ref: power-switch-footprint
+          shift: [-2, 0]
+  caseCutoutReset:
+    - what: rectangle
+      size: [4, 6]
+      where:
+        - ref: reset-switch-footprint
+          shift: [-2, 0]
   caseWallRight:
     - name: caseOuterRight
     - name: caseInnerRight
@@ -547,6 +559,12 @@ cases:
   _innerWallLeft:
     - name: caseInnerLeft
       extrude: 8.5
+  _caseCutoutPowerLeft:
+    - name: caseCutoutPower
+      extrude: 6
+  _caseCutoutResetLeft:
+    - name: caseCutoutReset
+      extrude: 6
   _wallLeft:
     - what: case
       name: _outerWallLeft
@@ -567,6 +585,12 @@ cases:
     - what: case
       name: _wallLeft
       operation: add
+    - what: case
+      name: _caseCutoutPowerLeft
+      operation: subtract
+    - what: case
+      name: _caseCutoutResetLeft
+      operation: subtract
   ## RIGHT CASE
   _holesRight:
     - name: caseHolesRight
@@ -592,6 +616,12 @@ cases:
   _innerWallRight:
     - name: caseInnerRight
       extrude: 8.5
+  _caseCutoutPowerRight:
+    - name: caseCutoutPower
+      extrude: 6
+  _caseCutoutResetRight:
+    - name: caseCutoutReset
+      extrude: 6
   _wallRight:
     - what: case
       name: _outerWallRight
@@ -621,6 +651,12 @@ cases:
     - what: case
       name: _wallRight
       operation: add
+    - what: case
+      name: _caseCutoutPowerRight
+      operation: subtract
+    - what: case
+      name: _caseCutoutResetRight
+      operation: subtract
 
 pcbs:
   ravensplit-board:
