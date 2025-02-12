@@ -437,13 +437,13 @@ outlines:
       size: [4, 10]
       where:
         - ref: power-switch-footprint
-          shift: [-2, 0]
+          shift: [-2.8, 0]
   caseCutoutReset:
     - what: rectangle
       size: [4, 6]
       where:
         - ref: reset-switch-footprint
-          shift: [-2, 0]
+          shift: [-2.8, 0]
   caseWallRight:
     - name: caseOuterRight
     - name: caseInnerRight
