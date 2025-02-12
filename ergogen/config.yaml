@@ -114,7 +114,7 @@ points:
     ffc12-footprint:
       anchor:
         ref: matrix_inner_bottom
-        shift: [6, 6.5]
+        shift: [5, 6.5]
       key:
         name: ffc12-footprint
         width: 1
@@ -154,7 +154,7 @@ points:
     mcu-footprint:
       anchor:
         ref: matrix_ring_top
-        shift: [-32.5, -2]
+        shift: [-31, -2]
       key:
         name: mcu-footprint
         width: 1
@@ -162,7 +162,7 @@ points:
     power-switch-footprint:
       anchor:
         ref: matrix_outer_home
-        shift: [-9.5, 0]
+        shift: [-8, 0]
       key:
         name: power-switch-footprint
         width: 1
@@ -170,7 +170,7 @@ points:
     reset-switch-footprint:
       anchor:
         ref: matrix_outer_home
-        shift: [-9.5, -10]
+        shift: [-8, -10]
       key:
         name: reset-switch-footprint
         width: 1
@@ -451,7 +451,7 @@ outlines:
   caseStandoffsRight:
     - what: circle
       radius: caseStandoffRadius
-      where: /.*mount-hole.*/
+      where: /.*mount-hole.*/s
   cirqueHoles:
     - what: circle
       radius: caseHoleRadius
@@ -690,7 +690,7 @@ pcbs:
           from: "{{colrow}}"
           to: "{{row_net}}"
         adjust:
-          shift: [-5, 0]
+          shift: [-4, 5]
           rotate: -90
       mcu:
         what: ceoloide/mcu_nice_nano
@@ -709,6 +709,9 @@ pcbs:
           P8: C3
           P9: C4
           P10: C5
+          P14: ""
+          P15: ""
+          P16: ""
           P21: R0
           P20: R1
           P19: R2
