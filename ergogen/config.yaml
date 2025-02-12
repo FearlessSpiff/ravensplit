@@ -788,9 +788,3 @@ pcbs:
       mounting-holes:
         what: ceoloide/mounting_hole_npth
         where: /.*mount-hole.*/
-      label:
-        what: ceoloide/utility_text
-        params:
-          text: ravensplit ver0.1
-        where:
-          ref: thumbs_inner_thumb
