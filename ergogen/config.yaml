@@ -62,12 +62,12 @@ points:
           key:
             rotate: -8
             shift: [0, -2]
-            column_net: C1
+            column_net: C5
         reachy:
           key:
             rotate: 3
             shift: [-40, 3]
-            column_net: C0
+            column_net: C4
       rows:
         thumb:
           row_net: R3
@@ -698,20 +698,20 @@ pcbs:
           reverse_mount: true
           reversible: true
           show_silk_labels_on_both_sides: false
-          P0: SO # White (008)
-          P1: SCK # Black (006)
-          P2: CS # Blue (017)
-          P3: DR # Green (020)
-          P4: SI # Red (022)
-          P5: C0
-          P6: C1
-          P7: C2
-          P8: C3
-          P9: C4
-          P10: C5
-          P14: ""
-          P15: ""
-          P16: ""
+          P0: ""
+          P1: ""
+          P2: ""
+          P3: SO # White (020)
+          P4: SCK # Black (022)
+          P5: CS # Blue (024)
+          P6: DR # Green (100)
+          P7: SI # Red (011)
+          P8: C0
+          P9: C1
+          P10: C2
+          P14: C4
+          P15: C5
+          P16: C3
           P21: R0
           P20: R1
           P19: R2
@@ -778,7 +778,7 @@ pcbs:
         where:
           ref: thumbs_inner_thumb
           shift: [0, 13]
-          rotate: -17
+          rotate: -23
   ravensplit-top-plate:
     template: kicad8
     outlines:
