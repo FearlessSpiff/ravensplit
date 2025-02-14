@@ -701,8 +701,8 @@ pcbs:
           P0: ""
           P1: ""
           P2: ""
-          P3: SO # White (020)
-          P4: SCK # Black (022)
+          P3: SCK # Black (020)
+          P4: SO # White (022)
           P5: CS # Blue (024)
           P6: DR # Green (100)
           P7: SI # Red (011)
@@ -720,7 +720,7 @@ pcbs:
           ref: mcu-footprint
           rotate: 90
       ffc-12pin:
-        what: FearlessSpiff/connector_ffc_12p_0_5mm
+        what: FearlessSpiff/connector_ffc_12p_0_5mm_mirrored
         params:
           P1: SCK # Black
           P2: SO # White
