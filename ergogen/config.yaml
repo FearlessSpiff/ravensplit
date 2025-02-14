@@ -154,7 +154,7 @@ points:
     mcu-footprint:
       anchor:
         ref: matrix_ring_top
-        shift: [-31, -2]
+        shift: [-31, -3]
       key:
         name: mcu-footprint
         width: 1
