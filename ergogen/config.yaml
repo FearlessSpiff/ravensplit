@@ -775,6 +775,7 @@ pcbs:
         what: ceoloide/utility_text
         params:
           text: ravensplit ver0.1
+          reversible: true
         where:
           ref: thumbs_inner_thumb
           shift: [0, 13]
