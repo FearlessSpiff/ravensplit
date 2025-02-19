@@ -204,12 +204,28 @@ outlines:
         - /matrix_.*/
         - /thumbs_.*/
       size: [14, 14]
-  keys-diodes-solder:
+  keys-stem-footprint:
+    - what: circle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      radius: 2.75
+  keys-footprint:
     - what: rectangle
       where:
         - /matrix_.*/
         - /thumbs_.*/
-      size: [13, 13]
+      size: [10, 5]
+      adjust:
+        shift: [0, -5.2]
+  diodes-footprint:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [3, 5]
+      adjust:
+        shift: [-4, 5]
   board:
     - what: polygon
       operation: stack
@@ -504,7 +520,11 @@ outlines:
       operation: subtract
   bottom-foam-plate:
     - name: board
-    - name: keys-diodes-solder
+    - name: keys-footprint
+      operation: subtract
+    - name: keys-stem-footprint
+      operation: subtract
+    - name: diodes-footprint
       operation: subtract
     - what: circle
       radius: 2.15
@@ -515,8 +535,16 @@ outlines:
       where: /.*standoff.*/
       operation: subtract
     - what: rectangle
-      where: mcu-right-pins
-      size: [34, 4]
+      where: mcu-footprint
+      size: [33, 3.5]
+      adjust:
+        shift: [0, 7.5]
+      operation: subtract
+    - what: rectangle
+      where: mcu-footprint
+      size: [33, 3.5]
+      adjust:
+        shift: [0, -7.5]
       operation: subtract
     - what: rectangle
       where: mcu-left-pins
