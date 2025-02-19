@@ -1,5 +1,6 @@
 ergogen/output
 ergogen/footprints/ceoloide
+*_autosave*
 *.kicad_prl
 *.kicad_pro
 *.kicad_pcb.lck
