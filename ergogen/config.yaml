@@ -518,7 +518,7 @@ outlines:
       radius: 1.1
       where: /.*mount-hole.*/
       operation: subtract
-  bottom-foam-plate:
+  bottom-foam-plate-left:
     - name: board
     - name: keys-footprint
       operation: subtract
@@ -557,6 +557,14 @@ outlines:
     - what: rectangle
       where: reset-switch-footprint
       size: [4, 14]
+      operation: subtract
+  bottom-foam-plate-right:
+    - name: bottom-foam-plate-left
+    - what: rectangle
+      where: ffc12-footprint
+      size: [10, 10]
+      adjust:
+        shift: [4, 0]
       operation: subtract
   cirqueHolderHelper:
     - name: caseRightExtensionOuter
