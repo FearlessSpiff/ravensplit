@@ -536,35 +536,31 @@ outlines:
       operation: subtract
     - what: rectangle
       where: mcu-footprint
-      size: [33, 3.5]
+      size: [34, 3.5]
       adjust:
-        shift: [0, 7.5]
+        shift: [-0.5, 7.5]
       operation: subtract
     - what: rectangle
       where: mcu-footprint
-      size: [33, 3.5]
+      size: [34, 3.5]
       adjust:
-        shift: [0, -7.5]
-      operation: subtract
-    - what: rectangle
-      where: mcu-left-pins
-      size: [34, 4]
+        shift: [-0.5, -7.5]
       operation: subtract
     - what: rectangle
       where: power-switch-footprint
-      size: [4, 14]
+      size: [4.5, 14]
       operation: subtract
     - what: rectangle
       where: reset-switch-footprint
-      size: [4, 14]
+      size: [4.5, 14]
       operation: subtract
   bottom-foam-plate-right:
     - name: bottom-foam-plate-left
     - what: rectangle
       where: ffc12-footprint
-      size: [10, 10]
+      size: [11, 11]
       adjust:
-        shift: [4, 0]
+        shift: [3, 0]
       operation: subtract
   cirqueHolderHelper:
     - name: caseRightExtensionOuter
