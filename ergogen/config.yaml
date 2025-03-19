@@ -4,7 +4,7 @@ units:
   caseOuter: 1.9
   caseInner: 0.3
   caseStandoffRadius: 1.75
-  cirqueStandoffRadius: 2.5
+  cirqueStandoffRadius: 2.1
   caseHoleRadius: 1
 points:
   zones:
