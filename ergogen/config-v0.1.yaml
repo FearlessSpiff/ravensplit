@@ -1,0 +1,823 @@
+units:
+  angle: -10
+  P: 0.53U
+  caseOuter: 1.9
+  caseInner: 0.3
+  caseStandoffRadius: 1.75
+  cirqueStandoffRadius: 2.1
+  caseHoleRadius: 1
+points:
+  zones:
+    matrix:
+      # Fix placement on KiCAD sheet.
+      anchor:
+        shift: [100, -100]
+      rotate: angle
+      columns:
+        outer:
+          key:
+            column_net: C0
+          rows:
+            top:
+              skip: true
+        pinky:
+          key:
+            column_net: C1
+          rows:
+            top:
+              skip: true
+        ring:
+          key:
+            stagger: 0.25U
+            column_net: C2
+        middle:
+          key:
+            stagger: 0.25U
+            column_net: C3
+        index:
+          key:
+            stagger: -0.25U
+            column_net: C4
+        inner:
+          key:
+            stagger: -0.25U
+            column_net: C5
+      rows:
+        bottom:
+          padding: U
+          row_net: R2
+        home:
+          padding: U
+          row_net: R1
+        top:
+          padding: U
+          row_net: R0
+    thumbs:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [0.75U, -1.5U]
+        rotate: -8
+      columns:
+        inner:
+          key:
+            rotate: -8
+            shift: [0, -2]
+            column_net: C5
+        reachy:
+          key:
+            rotate: 3
+            shift: [-40, 3]
+            column_net: C4
+      rows:
+        thumb:
+          row_net: R3
+    mount-hole-inner-top:
+      anchor:
+        ref: matrix_inner_top
+        shift: [-0.5U, 0.2U]
+      key:
+        name: mount-hole-inner-top
+        width: 1
+        height: 1
+    mount-hole-inner-bottom:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [.35U, -0.8U]
+      key:
+        name: mount-hole-inner-bottom
+        width: 1
+        height: 1
+    mount-hole-middle-home:
+      anchor:
+        ref: matrix_middle_home
+        shift: [-0.5U, -0.35U]
+      key:
+        name: mount-hole-middle-home
+        width: 1
+        height: 1
+    mount-hole-pinky-home:
+      anchor:
+        ref: matrix_pinky_home
+        shift: [-0.5U, 0.2U]
+      key:
+        name: mount-hole-pinky-home
+        width: 1
+        height: 1
+    mount-hole-pinky-bottom:
+      anchor:
+        ref: matrix_pinky_bottom
+        shift: [-0.5U, -0.2U]
+      key:
+        name: mount-hole-pinky-bottom
+        width: 1
+        height: 1
+    ffc12-footprint:
+      anchor:
+        ref: matrix_inner_bottom
+        shift: [5, 6.5]
+      key:
+        name: ffc12-footprint
+        width: 1
+        height: 1
+    cirque-hole-top-right:
+      anchor:
+        ref: ffc12-footprint
+        shift: [20, -10]
+      key:
+        name: cirque-hole-top-right
+        width: 1
+        height: 1
+    cirque-hole-top-left:
+      anchor:
+        ref: ffc12-footprint
+        shift: [8, 16]
+      key:
+        name: cirque-hole-top-left
+        width: 1
+        height: 1
+    cirque-hole-bottom-left:
+      anchor:
+        ref: ffc12-footprint
+        shift: [8, -16]
+      key:
+        name: cirque-hole-bottom-left
+        width: 1
+        height: 1
+    cirque-hole-bottom-right:
+      anchor:
+        ref: ffc12-footprint
+        shift: [20, 10]
+      key:
+        name: cirque-hole-bottom-right
+        width: 1
+        height: 1
+    mcu-footprint:
+      anchor:
+        ref: matrix_ring_top
+        shift: [-31, -3]
+      key:
+        name: mcu-footprint
+        width: 1
+        height: 1
+    power-switch-footprint:
+      anchor:
+        ref: matrix_outer_home
+        shift: [-8, 0]
+      key:
+        name: power-switch-footprint
+        width: 1
+        height: 1
+    reset-switch-footprint:
+      anchor:
+        ref: matrix_outer_home
+        shift: [-8, -10]
+      key:
+        name: reset-switch-footprint
+        width: 1
+        height: 1
+    battery-pad-plus-mcu-footprint:
+      anchor:
+        ref: mcu-footprint
+        shift: [19, -6]
+      key:
+        name: battery-pad-plus-mcu-footprint
+        width: 1
+        height: 1
+    battery-pad-minus-mcu-footprint:
+      anchor:
+        ref: mcu-footprint
+        shift: [19, 6]
+      key:
+        name: battery-pad-minus-mcu-footprint
+        width: 1
+        height: 1
+outlines:
+  keycaps:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [U-0.5, U-0.5]
+  keys:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [14, 14]
+  keys-stem-footprint:
+    - what: circle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      radius: 2.75
+  keys-footprint:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [10, 5]
+      adjust:
+        shift: [0, -5.2]
+  diodes-footprint:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [3, 5]
+      adjust:
+        shift: [-4, 5]
+  board:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: matrix_outer_home
+          shift: [-P, 3.2P]
+        - ref: matrix_ring_top
+          shift: [-P, 0.85P]
+        - ref: matrix_ring_top
+          shift: [-0.9P, P]
+        - ref: matrix_ring_top
+          shift: [0.65P, P]
+        - ref: matrix_middle_top
+          shift: [-P, P]
+        - ref: matrix_middle_top
+          shift: [P, P]
+        - ref: matrix_index_top
+          shift: [-0.65P, P]
+        - ref: matrix_index_top
+          shift: [P, P]
+        - ref: matrix_inner_top
+          shift: [-0.65P, P]
+        - ref: matrix_inner_top
+          shift: [P, P]
+        - ref: matrix_inner_bottom
+          shift: [P, -1P]
+        - ref: thumbs_inner_thumb
+          shift: [P, 1P]
+        - ref: thumbs_inner_thumb
+          shift: [P, -P]
+        - ref: thumbs_inner_thumb
+          shift: [-.9P, -P]
+        - ref: thumbs_reachy_thumb
+          shift: [0.65P, -P]
+        - ref: thumbs_reachy_thumb
+          shift: [-P, -P]
+        - ref: matrix_index_bottom
+          shift: [0.2P, -P]
+        - ref: matrix_index_bottom
+          shift: [-P, -P]
+        - ref: matrix_middle_bottom
+          shift: [0.65P, -P]
+        - ref: matrix_middle_bottom
+          shift: [-0.65P, -P]
+        - ref: matrix_ring_bottom
+          shift: [P, -P]
+        - ref: matrix_ring_bottom
+          shift: [-0.65P, -P]
+        - ref: matrix_pinky_bottom
+          shift: [P, -P]
+        - ref: matrix_outer_bottom
+          shift: [-P, -P]
+  caseOuterLeft:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: matrix_outer_home
+          shift: [-P-caseOuter, 3.2P+caseOuter]
+        - ref: matrix_ring_top
+          shift: [-P-caseOuter, 0.85P+caseOuter]
+        - ref: matrix_ring_top
+          shift: [-0.9P-caseOuter, P+caseOuter]
+        - ref: matrix_ring_top
+          shift: [0.65P-caseOuter, P+caseOuter]
+        - ref: matrix_middle_top
+          shift: [-P-caseOuter, P+caseOuter]
+        - ref: matrix_middle_top
+          shift: [P+caseOuter, P+caseOuter]
+        - ref: matrix_index_top
+          shift: [-0.65P+caseOuter, P+caseOuter]
+        - ref: matrix_index_top
+          shift: [P+caseOuter, P+caseOuter]
+        - ref: matrix_inner_top
+          shift: [-0.65P+caseOuter, P+caseOuter]
+        - ref: matrix_inner_top
+          shift: [P+caseOuter, P+caseOuter]
+        - ref: matrix_inner_bottom
+          shift: [P+caseOuter, -1P+caseOuter]
+        - ref: thumbs_inner_thumb
+          shift: [P+caseOuter, 1P+caseOuter]
+        - ref: thumbs_inner_thumb
+          shift: [P+caseOuter, -P-caseOuter]
+        - ref: thumbs_inner_thumb
+          shift: [-.9P-caseOuter, -P-caseOuter]
+        - ref: thumbs_reachy_thumb
+          shift: [0.65P-caseOuter, -P-caseOuter]
+        - ref: thumbs_reachy_thumb
+          shift: [-P-caseOuter, -P-caseOuter]
+        - ref: matrix_index_bottom
+          shift: [0.2P-caseOuter, -P-caseOuter]
+        - ref: matrix_index_bottom
+          shift: [-P-caseOuter, -P-caseOuter]
+        - ref: matrix_middle_bottom
+          shift: [0.65P-caseOuter, -P-caseOuter]
+        - ref: matrix_middle_bottom
+          shift: [-0.65P+caseOuter, -P-caseOuter]
+        - ref: matrix_ring_bottom
+          shift: [P+caseOuter, -P-caseOuter]
+        - ref: matrix_ring_bottom
+          shift: [-0.65P+caseOuter, -P-caseOuter]
+        - ref: matrix_pinky_bottom
+          shift: [P+caseOuter, -P-caseOuter]
+        - ref: matrix_outer_bottom
+          shift: [-P-caseOuter, -P-caseOuter]
+  caseInnerLeft:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: matrix_outer_home
+          shift: [-P-caseInner, 3.2P+caseInner]
+        - ref: matrix_ring_top
+          shift: [-P-caseInner, 0.85P+caseInner]
+        - ref: matrix_ring_top
+          shift: [-0.9P-caseInner, P+caseInner]
+        - ref: matrix_ring_top
+          shift: [0.65P-caseInner, P+caseInner]
+        - ref: matrix_middle_top
+          shift: [-P-caseInner, P+caseInner]
+        - ref: matrix_middle_top
+          shift: [P+caseInner, P+caseInner]
+        - ref: matrix_index_top
+          shift: [-0.65P+caseInner, P+caseInner]
+        - ref: matrix_index_top
+          shift: [P+caseInner, P+caseInner]
+        - ref: matrix_inner_top
+          shift: [-0.65P+caseInner, P+caseInner]
+        - ref: matrix_inner_top
+          shift: [P+caseInner, P+caseInner]
+        - ref: matrix_inner_bottom
+          shift: [P+caseInner, -1P+caseInner]
+        - ref: thumbs_inner_thumb
+          shift: [P+caseInner, 1P+caseInner]
+        - ref: thumbs_inner_thumb
+          shift: [P+caseInner, -P-caseInner]
+        - ref: thumbs_inner_thumb
+          shift: [-.9P-caseInner, -P-caseInner]
+        - ref: thumbs_reachy_thumb
+          shift: [0.65P-caseInner, -P-caseInner]
+        - ref: thumbs_reachy_thumb
+          shift: [-P-caseInner, -P-caseInner]
+        - ref: matrix_index_bottom
+          shift: [0.2P-caseInner, -P-caseInner]
+        - ref: matrix_index_bottom
+          shift: [-P-caseInner, -P-caseInner]
+        - ref: matrix_middle_bottom
+          shift: [0.65P-caseInner, -P-caseInner]
+        - ref: matrix_middle_bottom
+          shift: [-0.65P+caseInner, -P-caseInner]
+        - ref: matrix_ring_bottom
+          shift: [P+caseInner, -P-caseInner]
+        - ref: matrix_ring_bottom
+          shift: [-0.65P+caseInner, -P-caseInner]
+        - ref: matrix_pinky_bottom
+          shift: [P+caseInner, -P-caseInner]
+        - ref: matrix_outer_bottom
+          shift: [-P-caseInner, -P-caseInner]
+  caseRightExtensionInner:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: ffc12-footprint
+          shift: [-10, 30]
+        - ref: ffc12-footprint
+          shift: [24, 20]
+        - ref: ffc12-footprint
+          shift: [24, -20]
+        - ref: ffc12-footprint
+          shift: [-10, -30]
+  caseRightExtensionOuter:
+    - what: polygon
+      operation: stack
+      fillet: 2
+      points:
+        - ref: ffc12-footprint
+          shift: [-10-caseOuter, 30+caseOuter]
+        - ref: ffc12-footprint
+          shift: [24+caseOuter, 20+caseOuter]
+        - ref: ffc12-footprint
+          shift: [24+caseOuter, -20-caseOuter]
+        - ref: ffc12-footprint
+          shift: [-10-caseOuter, -30-caseOuter]
+  caseInnerRight:
+    - name: caseInnerLeft
+    - name: caseRightExtensionInner
+      operation: add
+  caseOuterRight:
+    - name: caseOuterLeft
+    - name: caseRightExtensionOuter
+      operation: add
+  mcu-top-cutout:
+    - what: polygon
+      operation: stack
+      fillet: 3
+      points:
+        - ref: matrix_outer_home
+          shift: [-4P, 3P]
+        - ref: matrix_ring_top
+          shift: [-0.93P, 2P]
+        - ref: matrix_ring_home
+          shift: [-P, 0.5P]
+        - ref: matrix_outer_home
+          shift: [-1P, 1P]
+        - ref: matrix_outer_bottom
+          shift: [-1P, P]
+        - ref: matrix_outer_bottom
+          shift: [-4P, P]
+  caseWallLeft:
+    - name: caseOuterLeft
+    - name: caseInnerLeft
+      operation: subtract
+  caseStandoffsLeft:
+    - what: circle
+      radius: caseStandoffRadius
+      where: /.*mount-hole.*/
+  caseHolesLeft:
+    - what: circle
+      radius: caseHoleRadius
+      where: /.*mount-hole.*/
+  caseCutoutPower:
+    - what: rectangle
+      size: [4, 10]
+      where:
+        - ref: power-switch-footprint
+          shift: [-2.8, 0]
+  caseCutoutReset:
+    - what: rectangle
+      size: [4, 6]
+      where:
+        - ref: reset-switch-footprint
+          shift: [-2.8, 0]
+  caseWallRight:
+    - name: caseOuterRight
+    - name: caseInnerRight
+      operation: subtract
+  caseStandoffsRight:
+    - what: circle
+      radius: caseStandoffRadius
+      where: /.*mount-hole.*/s
+  cirqueHoles:
+    - what: circle
+      radius: caseHoleRadius
+      where: /.*cirque-hole.*/
+  cirqueStandoffsLeft:
+    - what: circle
+      radius: cirqueStandoffRadius
+      where: /.*cirque-hole-.*-left.*/
+  cirqueStandoffsRight:
+    - what: circle
+      radius: cirqueStandoffRadius
+      where: /.*cirque-hole-.*-right.*/
+  caseHolesRight:
+    - what: circle
+      radius: caseHoleRadius
+      where: /.*mount-hole.*/
+  cirqueHolesLeft:
+    - what: circle
+      radius: caseHoleRadius
+      where: /.*cirque-hole.*-left.*/
+  cirqueHolesRight:
+    - what: circle
+      radius: caseHoleRadius
+      where: /.*cirque-hole.*-right.*/
+  top-plate:
+    - name: board
+    - name: keys
+      operation: subtract
+    - name: mcu-top-cutout
+      operation: subtract
+    - what: circle
+      radius: 1.1
+      where: /.*mount-hole.*/
+      operation: subtract
+  top-foam-plate:
+    - name: board
+    - name: keys
+      operation: subtract
+    - name: mcu-top-cutout
+      operation: subtract
+    - what: circle
+      radius: 2.15
+      where: /.*mount-hole.*/
+      operation: subtract
+  bottom-plate:
+    - name: board
+    - what: circle
+      radius: 1.1
+      where: /.*mount-hole.*/
+      operation: subtract
+  bottom-foam-plate-left:
+    - name: board
+    - name: keys-footprint
+      operation: subtract
+    - name: keys-stem-footprint
+      operation: subtract
+    - name: diodes-footprint
+      operation: subtract
+    - what: circle
+      radius: 2.15
+      where: /.*mount-hole.*/
+      operation: subtract
+    - what: circle
+      radius: 2.15
+      where: /.*standoff.*/
+      operation: subtract
+    - what: rectangle
+      where: mcu-footprint
+      size: [34, 3.5]
+      adjust:
+        shift: [-0.5, 7.5]
+      operation: subtract
+    - what: rectangle
+      where: mcu-footprint
+      size: [34, 3.5]
+      adjust:
+        shift: [-0.5, -7.5]
+      operation: subtract
+    - what: rectangle
+      where: power-switch-footprint
+      size: [4.5, 14]
+      operation: subtract
+    - what: rectangle
+      where: reset-switch-footprint
+      size: [4.5, 14]
+      operation: subtract
+  bottom-foam-plate-right:
+    - name: bottom-foam-plate-left
+    - what: rectangle
+      where: ffc12-footprint
+      size: [11, 11]
+      adjust:
+        shift: [3, 0]
+      operation: subtract
+  cirqueHolderHelper:
+    - name: caseRightExtensionOuter
+    - name: top-plate
+      operation: subtract
+    - what: circle
+      radius: 1.15
+      where: /.*cirque-hole.*/
+      operation: subtract
+  preview:
+    - name: board
+    - name: keycaps
+      operation: subtract
+cases:
+  ## LEFT CASE
+  _holesLeft:
+    - name: caseHolesLeft
+      extrude: 6.5
+  _standoffsLeft:
+    - name: caseStandoffsLeft
+      extrude: 6.5
+  _bottomLeft:
+    - name: caseInnerLeft
+      extrude: 1
+  _outerWallLeft:
+    - name: caseOuterLeft
+      extrude: 8.5
+  _innerWallLeft:
+    - name: caseInnerLeft
+      extrude: 8.5
+  _caseCutoutPowerLeft:
+    - name: caseCutoutPower
+      extrude: 6
+  _caseCutoutResetLeft:
+    - name: caseCutoutReset
+      extrude: 6
+  _wallLeft:
+    - what: case
+      name: _outerWallLeft
+      operation: add
+    - what: case
+      name: _innerWallLeft
+      operation: subtract
+  LeftCase:
+    - what: case
+      name: _standoffsLeft
+      operation: add
+    - what: case
+      name: _holesLeft
+      operation: subtract
+    - what: case
+      name: _bottomLeft
+      operation: add
+    - what: case
+      name: _wallLeft
+      operation: add
+    - what: case
+      name: _caseCutoutPowerLeft
+      operation: subtract
+    - what: case
+      name: _caseCutoutResetLeft
+      operation: subtract
+  ## RIGHT CASE
+  _holesRight:
+    - name: caseHolesRight
+      extrude: 6.5
+  _cirqueHoles:
+    - name: cirqueHoles
+      extrude: 8.6
+  _standoffsRight:
+    - name: caseStandoffsRight
+      extrude: 6.5
+  _cirqueStandoffsLeft:
+    - name: cirqueStandoffsLeft
+      extrude: 8.6
+  _cirqueStandoffsRight:
+    - name: cirqueStandoffsRight
+      extrude: 8.6
+  _bottomRight:
+    - name: caseInnerRight
+      extrude: 1
+  _outerWallRight:
+    - name: caseOuterRight
+      extrude: 8.5
+  _innerWallRight:
+    - name: caseInnerRight
+      extrude: 8.5
+  _caseCutoutPowerRight:
+    - name: caseCutoutPower
+      extrude: 6
+  _caseCutoutResetRight:
+    - name: caseCutoutReset
+      extrude: 6
+  _wallRight:
+    - what: case
+      name: _outerWallRight
+      operation: add
+    - what: case
+      name: _innerWallRight
+      operation: subtract
+  RightCase:
+    - what: case
+      name: _standoffsRight
+      operation: add
+    - what: case
+      name: _cirqueStandoffsLeft
+      operation: add
+    - what: case
+      name: _cirqueStandoffsRight
+      operation: add
+    - what: case
+      name: _holesRight
+      operation: subtract
+    - what: case
+      name: _cirqueHoles
+      operation: subtract
+    - what: case
+      name: _bottomRight
+      operation: add
+    - what: case
+      name: _wallRight
+      operation: add
+    - what: case
+      name: _caseCutoutPowerRight
+      operation: subtract
+    - what: case
+      name: _caseCutoutResetRight
+      operation: subtract
+
+pcbs:
+  ravensplit-board:
+    template: kicad8
+    outlines:
+      main:
+        outline: board
+    footprints:
+      ks33-switches:
+        what: ceoloide/switch_gateron_ks27_ks33
+        where:
+          - /matrix_.*/
+          - /thumbs_.*/
+        params:
+          solder: true
+          reversible: true
+          hotswap: false
+          include_keycap: true
+          keycap_height: 18
+          keycap_width: 18
+          from: "{{colrow}}"
+          to: "{{column_net}}"
+      diodes:
+        what: ceoloide/diode_tht_sod123
+        where:
+          - /matrix_.*/
+          - /thumbs_.*/
+        params:
+          reversible: true
+          include_thru_hole_smd_pads: true
+          from: "{{colrow}}"
+          to: "{{row_net}}"
+        adjust:
+          shift: [-4, 5]
+          rotate: -90
+      mcu:
+        what: ceoloide/mcu_nice_nano
+        params:
+          reverse_mount: true
+          reversible: true
+          show_silk_labels_on_both_sides: false
+          P0: ""
+          P1: ""
+          P2: ""
+          P3: SCK # Black (020)
+          P4: SO # White (022)
+          P5: CS # Blue (024)
+          P6: DR # Green (100)
+          P7: SI # Red (011)
+          P8: C0
+          P9: C1
+          P10: C2
+          P14: C4
+          P15: C5
+          P16: C3
+          P21: R0
+          P20: R1
+          P19: R2
+          P18: R3
+        where:
+          ref: mcu-footprint
+          rotate: 90
+      ffc-12pin:
+        what: FearlessSpiff/connector_ffc_12p_0_5mm_mirrored
+        params:
+          P1: SCK # Black
+          P2: SO # White
+          P3: CS # Blue
+          P4: DR # Green
+          P5: SI # Red
+          P11: GND
+          P12: VCC
+        where:
+          ref: ffc12-footprint
+          rotate: 90
+          shift: [0, 0]
+      power-switch:
+        what: ceoloide/power_switch_smd_side
+        params:
+          reversible: true
+        where:
+          ref: power-switch-footprint
+          shift: [0, 0]
+          rotate: 180
+      reset-switch:
+        what: ceoloide/reset_switch_smd_side
+        params:
+          reversible: true
+        where:
+          ref: reset-switch-footprint
+          shift: [0, 0]
+          rotate: 90
+      battery-pad-plus-mcu-connector:
+        what: FearlessSpiff/mrzealot-pad
+        params:
+          net: "BAT_P"
+          text: "+"
+        where:
+          ref: battery-pad-plus-mcu-footprint
+          rotate: 90
+      battery-pad-minus-mcu-connector:
+        what: FearlessSpiff/mrzealot-pad
+        params:
+          net: "GND"
+          text: "-"
+        where:
+          ref: battery-pad-minus-mcu-footprint
+          rotate: 90
+      mounting-holes:
+        what: ceoloide/mounting_hole_npth
+        where: /.*mount-hole.*/
+        params:
+          hole_size: 4.8
+          hole_drill: 4.3
+      label:
+        what: ceoloide/utility_text
+        params:
+          text: ravensplit ver0.1
+          reversible: true
+        where:
+          ref: thumbs_inner_thumb
+          shift: [0, 13]
+          rotate: -23
+  ravensplit-top-plate:
+    template: kicad8
+    outlines:
+      main:
+        outline: top-plate
+    footprints:
+      mounting-holes:
+        what: ceoloide/mounting_hole_npth
+        where: /.*mount-hole.*/
