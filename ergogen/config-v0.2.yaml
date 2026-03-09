@@ -769,6 +769,7 @@ pcbs:
         what: ceoloide/power_switch_smd_side
         params:
           reversible: true
+          invert_behavior: true
         where:
           ref: power-switch-footprint
           shift: [0, 0]
@@ -782,7 +783,7 @@ pcbs:
           shift: [0, 0]
           rotate: 90
       battery-pad-plus-mcu-connector:
-        what: ceoloide/backlog/mrzealot/pad
+        what: FearlessSpiff/mrzealot-pad
         params:
           net: "BAT_P"
           text: "+"
@@ -790,7 +791,7 @@ pcbs:
           ref: battery-pad-plus-mcu-footprint
           rotate: 90
       battery-pad-minus-mcu-connector:
-        what: ceoloide/backlog/mrzealot/pad
+        what: FearlessSpiff/mrzealot-pad
         params:
           net: "GND"
           text: "-"
@@ -806,7 +807,7 @@ pcbs:
       label:
         what: ceoloide/utility_text
         params:
-          text: ravensplit ver0.1
+          text: ravensplit ver0.2
           reversible: true
         where:
           ref: thumbs_inner_thumb
