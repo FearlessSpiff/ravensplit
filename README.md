@@ -45,3 +45,9 @@ ergogen . && npx @jscad/cli@1 output/cases/LeftCase.jscad -of stla
 ### Notes
 
 * mirror right case and cirque holder!
+
+### TODO
+
+* Add and route I2C FPC connector
+* Verify change switch on/off direction -> Check on printed PCB
+* Design new case for Azoteq TPS65
