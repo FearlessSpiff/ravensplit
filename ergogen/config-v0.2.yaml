@@ -111,17 +111,17 @@ points:
         name: mount-hole-pinky-bottom
         width: 1
         height: 1
-    ffc12-footprint:
+    ffc6-footprint:
       anchor:
         ref: matrix_inner_bottom
         shift: [5, 6.5]
       key:
-        name: ffc12-footprint
+        name: ffc6-footprint
         width: 1
         height: 1
     cirque-hole-top-right:
       anchor:
-        ref: ffc12-footprint
+        ref: ffc6-footprint
         shift: [20, -10]
       key:
         name: cirque-hole-top-right
@@ -129,7 +129,7 @@ points:
         height: 1
     cirque-hole-top-left:
       anchor:
-        ref: ffc12-footprint
+        ref: ffc6-footprint
         shift: [8, 16]
       key:
         name: cirque-hole-top-left
@@ -137,7 +137,7 @@ points:
         height: 1
     cirque-hole-bottom-left:
       anchor:
-        ref: ffc12-footprint
+        ref: ffc6-footprint
         shift: [8, -16]
       key:
         name: cirque-hole-bottom-left
@@ -145,7 +145,7 @@ points:
         height: 1
     cirque-hole-bottom-right:
       anchor:
-        ref: ffc12-footprint
+        ref: ffc6-footprint
         shift: [20, 10]
       key:
         name: cirque-hole-bottom-right
@@ -390,26 +390,26 @@ outlines:
       operation: stack
       fillet: 2
       points:
-        - ref: ffc12-footprint
+        - ref: ffc6-footprint
           shift: [-10, 30]
-        - ref: ffc12-footprint
+        - ref: ffc6-footprint
           shift: [24, 20]
-        - ref: ffc12-footprint
+        - ref: ffc6-footprint
           shift: [24, -20]
-        - ref: ffc12-footprint
+        - ref: ffc6-footprint
           shift: [-10, -30]
   caseRightExtensionOuter:
     - what: polygon
       operation: stack
       fillet: 2
       points:
-        - ref: ffc12-footprint
+        - ref: ffc6-footprint
           shift: [-10-caseOuter, 30+caseOuter]
-        - ref: ffc12-footprint
+        - ref: ffc6-footprint
           shift: [24+caseOuter, 20+caseOuter]
-        - ref: ffc12-footprint
+        - ref: ffc6-footprint
           shift: [24+caseOuter, -20-caseOuter]
-        - ref: ffc12-footprint
+        - ref: ffc6-footprint
           shift: [-10-caseOuter, -30-caseOuter]
   caseInnerRight:
     - name: caseInnerLeft
@@ -557,7 +557,7 @@ outlines:
   bottom-foam-plate-right:
     - name: bottom-foam-plate-left
     - what: rectangle
-      where: ffc12-footprint
+      where: ffc6-footprint
       size: [11, 11]
       adjust:
         shift: [3, 0]
@@ -732,12 +732,12 @@ pcbs:
           show_silk_labels_on_both_sides: false
           P0: ""
           P1: ""
-          P2: ""
-          P3: SCK # Black (020)
-          P4: SO # White (022)
-          P5: CS # Blue (024)
-          P6: DR # Green (100)
-          P7: SI # Red (011)
+          P2: SDA # White (017)
+          P3: SCL # Blue (020)
+          P4: RDY # Green (022)
+          P5: NRST # Black (024)
+          P6: ""
+          P7: ""
           P8: C0
           P9: C1
           P10: C2
@@ -752,17 +752,16 @@ pcbs:
           ref: mcu-footprint
           rotate: 90
       ffc-12pin:
-        what: FearlessSpiff/connector_ffc_12p_0_5mm_mirrored
+        what: FearlessSpiff/connector_ffc_6p_0_5mm_mirrored
         params:
-          P1: SCK # Black
-          P2: SO # White
-          P3: CS # Blue
-          P4: DR # Green
-          P5: SI # Red
-          P11: GND
-          P12: VCC
+          P1: RDY # Green
+          P2: NRST # Black
+          P3: GND
+          P4: VCC
+          P5: SCL # Blue
+          P6: SDA # White
         where:
-          ref: ffc12-footprint
+          ref: ffc6-footprint
           rotate: 90
           shift: [0, 0]
       power-switch:
