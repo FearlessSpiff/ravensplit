@@ -4,7 +4,6 @@ units:
   caseOuter: 1.9
   caseInner: 0.3
   caseStandoffRadius: 1.75
-  cirqueStandoffRadius: 2.1
   caseHoleRadius: 1
 points:
   zones:
@@ -117,38 +116,6 @@ points:
         shift: [5, 6.5]
       key:
         name: ffc6-footprint
-        width: 1
-        height: 1
-    cirque-hole-top-right:
-      anchor:
-        ref: ffc6-footprint
-        shift: [20, -10]
-      key:
-        name: cirque-hole-top-right
-        width: 1
-        height: 1
-    cirque-hole-top-left:
-      anchor:
-        ref: ffc6-footprint
-        shift: [8, 16]
-      key:
-        name: cirque-hole-top-left
-        width: 1
-        height: 1
-    cirque-hole-bottom-left:
-      anchor:
-        ref: ffc6-footprint
-        shift: [8, -16]
-      key:
-        name: cirque-hole-bottom-left
-        width: 1
-        height: 1
-    cirque-hole-bottom-right:
-      anchor:
-        ref: ffc6-footprint
-        shift: [20, 10]
-      key:
-        name: cirque-hole-bottom-right
         width: 1
         height: 1
     mcu-footprint:
@@ -386,31 +353,19 @@ outlines:
         - ref: matrix_outer_bottom
           shift: [-P-caseInner, -P-caseInner]
   caseRightExtensionInner:
-    - what: polygon
-      operation: stack
-      fillet: 2
-      points:
+    - what: rectangle
+      size: [70, 51]
+      corner: 2.5
+      where:
         - ref: ffc6-footprint
-          shift: [-10, 30]
-        - ref: ffc6-footprint
-          shift: [24, 20]
-        - ref: ffc6-footprint
-          shift: [24, -20]
-        - ref: ffc6-footprint
-          shift: [-10, -30]
+          shift: [38, 15]
   caseRightExtensionOuter:
-    - what: polygon
-      operation: stack
-      fillet: 2
-      points:
+    - what: rectangle
+      size: [70+caseOuter, 51+caseOuter]
+      corner: 2.5
+      where:
         - ref: ffc6-footprint
-          shift: [-10-caseOuter, 30+caseOuter]
-        - ref: ffc6-footprint
-          shift: [24+caseOuter, 20+caseOuter]
-        - ref: ffc6-footprint
-          shift: [24+caseOuter, -20-caseOuter]
-        - ref: ffc6-footprint
-          shift: [-10-caseOuter, -30-caseOuter]
+          shift: [38, 15]
   caseInnerRight:
     - name: caseInnerLeft
     - name: caseRightExtensionInner
@@ -468,30 +423,10 @@ outlines:
     - what: circle
       radius: caseStandoffRadius
       where: /.*mount-hole.*/s
-  cirqueHoles:
-    - what: circle
-      radius: caseHoleRadius
-      where: /.*cirque-hole.*/
-  cirqueStandoffsLeft:
-    - what: circle
-      radius: cirqueStandoffRadius
-      where: /.*cirque-hole-.*-left.*/
-  cirqueStandoffsRight:
-    - what: circle
-      radius: cirqueStandoffRadius
-      where: /.*cirque-hole-.*-right.*/
   caseHolesRight:
     - what: circle
       radius: caseHoleRadius
       where: /.*mount-hole.*/
-  cirqueHolesLeft:
-    - what: circle
-      radius: caseHoleRadius
-      where: /.*cirque-hole.*-left.*/
-  cirqueHolesRight:
-    - what: circle
-      radius: caseHoleRadius
-      where: /.*cirque-hole.*-right.*/
   top-plate:
     - name: board
     - name: keys
@@ -562,14 +497,6 @@ outlines:
       adjust:
         shift: [3, 0]
       operation: subtract
-  cirqueHolderHelper:
-    - name: caseRightExtensionOuter
-    - name: top-plate
-      operation: subtract
-    - what: circle
-      radius: 1.15
-      where: /.*cirque-hole.*/
-      operation: subtract
   preview:
     - name: board
     - name: keycaps
@@ -627,18 +554,9 @@ cases:
   _holesRight:
     - name: caseHolesRight
       extrude: 6.5
-  _cirqueHoles:
-    - name: cirqueHoles
-      extrude: 8.6
   _standoffsRight:
     - name: caseStandoffsRight
       extrude: 6.5
-  _cirqueStandoffsLeft:
-    - name: cirqueStandoffsLeft
-      extrude: 8.6
-  _cirqueStandoffsRight:
-    - name: cirqueStandoffsRight
-      extrude: 8.6
   _bottomRight:
     - name: caseInnerRight
       extrude: 1
@@ -666,16 +584,7 @@ cases:
       name: _standoffsRight
       operation: add
     - what: case
-      name: _cirqueStandoffsLeft
-      operation: add
-    - what: case
-      name: _cirqueStandoffsRight
-      operation: add
-    - what: case
       name: _holesRight
-      operation: subtract
-    - what: case
-      name: _cirqueHoles
       operation: subtract
     - what: case
       name: _bottomRight
