@@ -16,7 +16,7 @@ module.exports = {
   },
   body: p => {
     const footprint = `
-    (module FPC-SMD_FPC05012-09200 (layer F.Cu) (tedit 65F1514D)
+    (module FPC-SMD_FPC050A004 (layer F.Cu) (tedit 65F1514D)
       (descr "FearlessSpiff:6 Position FFC 0.5mm, FPC Connector")
       ${p.at /* parametric position */}
       (attr smd)
@@ -31,14 +31,14 @@ module.exports = {
   (fp_line (start 4.5 3.9705) (end -4.5 3.9705)(stroke (width 0.254) (type default)) (layer "F.SilkS"))
   (fp_line (start 4.5 3.9705) (end 4.5 2.588)(stroke (width 0.254) (type default)) (layer "F.SilkS"))
   (fp_circle (center 2.5 -2.032) (end 2.372 -2.032)(stroke (width 0.254) (type default)) (fill none) (layer "F.SilkS"))
-  (pad "S2" smd rect (at 3 0.5 ${p.rot}) (size 2.2 2) (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "S2" smd rect (at 3.2 1 ${p.rot}) (size 1.8 3) (layers "F.Cu" "F.Paste" "F.Mask"))
   (pad "6" smd rect (at -1.25 -1.3625 ${p.rot}) (size 0.28 1.25) (layers "F.Cu" "F.Paste" "F.Mask") ${p.P6.str})
   (pad "5" smd rect (at -0.75 -1.3625 ${p.rot}) (size 0.28 1.25) (layers "F.Cu" "F.Paste" "F.Mask") ${p.P5.str})
   (pad "4" smd rect (at -0.25 -1.3625 ${p.rot}) (size 0.28 1.25) (layers "F.Cu" "F.Paste" "F.Mask") ${p.P4.str})
   (pad "3" smd rect (at 0.25 -1.3625 ${p.rot}) (size 0.28 1.25) (layers "F.Cu" "F.Paste" "F.Mask") ${p.P3.str})
   (pad "2" smd rect (at 0.75 -1.3625 ${p.rot}) (size 0.28 1.25) (layers "F.Cu" "F.Paste" "F.Mask") ${p.P2.str})
   (pad "1" smd rect (at 1.25 -1.3625 ${p.rot}) (size 0.28 1.25) (layers "F.Cu" "F.Paste" "F.Mask") ${p.P1.str})
-  (pad "S1" smd rect (at -3 0.5 ${p.rot}) (size 2.2 2) (layers "F.Cu" "F.Paste" "F.Mask"))
+  (pad "S1" smd rect (at -3.2 1 ${p.rot}) (size 1.8 3) (layers "F.Cu" "F.Paste" "F.Mask"))
   )
     `
     return footprint;
