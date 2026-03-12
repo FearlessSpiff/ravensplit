@@ -2,10 +2,10 @@ $fn = 30;
 
 
 tp_h = 1.6;
-tp_w = 65.0;
-tp_d = 49.0;
+tp_w = 65.4;
+tp_d = 49.4;
 tp_r = 2.5;
-overlay_h = 1;
+overlay_h = 0.36;
 
 wall_t = 1;
 plate_t = 0.6;
