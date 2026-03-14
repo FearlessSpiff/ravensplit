@@ -690,7 +690,6 @@ pcbs:
         what: ceoloide/power_switch_smd_side
         params:
           reversible: true
-          invert_behavior: true
         where:
           ref: power-switch-footprint
           shift: [0, 0]
