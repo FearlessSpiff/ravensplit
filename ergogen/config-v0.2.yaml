@@ -673,6 +673,19 @@ pcbs:
           ref: ffc6-footprint
           rotate: 90
           shift: [0, 0]
+      ffc-12pin-left:
+        what: FearlessSpiff/connector_ffc_6p_0_5mm
+        params:
+          P1: RDY # Green
+          P2: NRST # Black
+          P3: GND
+          P4: VCC
+          P5: SCL # Blue
+          P6: SDA # White
+        where:
+          ref: ffc6-footprint
+          rotate: 90
+          shift: [0, 0]
       power-switch:
         what: ceoloide/power_switch_smd_side
         params:
