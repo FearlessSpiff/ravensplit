@@ -661,7 +661,7 @@ pcbs:
           ref: mcu-footprint
           rotate: 90
       ffc-12pin:
-        what: FearlessSpiff/connector_ffc_6p_0_5mm_mirrored
+        what: FearlessSpiff/connector_ffc_6p_0_5mm_F
         params:
           P1: RDY # Green
           P2: NRST # Black
@@ -674,7 +674,7 @@ pcbs:
           rotate: 90
           shift: [0, 0]
       ffc-12pin-left:
-        what: FearlessSpiff/connector_ffc_6p_0_5mm
+        what: FearlessSpiff/connector_ffc_6p_0_5mm_mirrored_B
         params:
           P1: RDY # Green
           P2: NRST # Black
