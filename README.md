@@ -9,6 +9,7 @@
 * For case build install `npm install -g @jscad/cli`
 
 ## v0.1 for Cirque Trackpad
+
 ### Build
 
 ```bash
@@ -20,7 +21,7 @@ ergogen .
 or for building including the left case:
 
 ```bash
-ergogen . && npx @jscad/cli@1 output/cases/LeftCase.jscad -of stla
+ergogen . && npx @jscad/cli@1 output/cases/LeftCase.jscad -of stla && npx @jscad/cli@1 output/cases/RightCase.jscad -of stla
 ```
 
 ### Notes
@@ -28,6 +29,7 @@ ergogen . && npx @jscad/cli@1 output/cases/LeftCase.jscad -of stla
 * mirror right case and cirque holder!
 
 ## v0.2 for Azoteq TPS65 touchpad
+
 ### Build
 
 ```bash
