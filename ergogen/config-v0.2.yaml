@@ -497,6 +497,18 @@ outlines:
       adjust:
         shift: [3, 0]
       operation: subtract
+    - what: rectangle
+      where: battery-pad-plus-mcu-footprint
+      size: [5, 42]
+      adjust:
+        shift: [2, -6]
+      operation: subtract
+    - what: rectangle
+      where: battery-pad-plus-mcu-footprint
+      size: [80, 5]
+      adjust:
+        shift: [39.5, -26]
+      operation: subtract
   preview:
     - name: board
     - name: keycaps
