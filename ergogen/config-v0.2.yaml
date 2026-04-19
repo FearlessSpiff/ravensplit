@@ -545,6 +545,22 @@ cases:
       operation: subtract
   LeftCase:
     - what: case
+      name: _bottomLeft
+      operation: add
+    - what: case
+      name: _wallLeft
+      operation: add
+    - what: case
+      name: _holesLeft
+      operation: subtract
+    - what: case
+      name: _caseCutoutPowerLeft
+      operation: subtract
+    - what: case
+      name: _caseCutoutResetLeft
+      operation: subtract
+  LeftCaseWithM2Standoffs:
+    - what: case
       name: _standoffsLeft
       operation: add
     - what: case
@@ -592,6 +608,22 @@ cases:
       name: _innerWallRight
       operation: subtract
   RightCase:
+    - what: case
+      name: _bottomRight
+      operation: add
+    - what: case
+      name: _wallRight
+      operation: add
+    - what: case
+      name: _caseCutoutPowerRight
+      operation: subtract
+    - what: case
+      name: _caseCutoutResetRight
+      operation: subtract
+    - what: case
+      name: _holesRight
+      operation: subtract
+  RightCaseWithM2Standoffs:
     - what: case
       name: _standoffsRight
       operation: add
