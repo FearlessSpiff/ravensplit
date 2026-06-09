@@ -1,10 +1,10 @@
 units:
   angle: -10
   P: 0.53U
-  caseOuter: 1.9
-  caseInner: 0.3
+  caseOuter: 1.8
+  caseInner: 0.6
   caseStandoffRadius: 1.75
-  caseHoleRadius: 1
+  caseHoleRadius: 1.15
 points:
   zones:
     matrix:
@@ -108,6 +108,62 @@ points:
         shift: [-0.5U, -0.2U]
       key:
         name: mount-hole-pinky-bottom
+        width: 1
+        height: 1
+    bumpon-thumb-top:
+      anchor:
+        ref: thumbs_inner_thumb
+        shift: [6, 8]
+      key:
+        name: bumpon-thumb-top
+        width: 1
+        height: 1
+    bumpon-thumb-bottom:
+      anchor:
+        ref: thumbs_inner_thumb
+        shift: [6, -6]
+      key:
+        name: bumpon-thumb-bottom
+        width: 1
+        height: 1
+    bumpon-top-right:
+      anchor:
+        ref: matrix_inner_top
+        shift: [6, 6]
+      key:
+        name: bumpon-top-right
+        width: 1
+        height: 1
+    bumpon-middle-top:
+      anchor:
+        ref: matrix_middle_top
+        shift: [0, 6]
+      key:
+        name: bumpon-middle-top
+        width: 1
+        height: 1
+    bumpon-middle-bottom:
+      anchor:
+        ref: matrix_middle_bottom
+        shift: [0, -6]
+      key:
+        name: bumpon-middle-bottom
+        width: 1
+        height: 1
+    bumpon-outer-top:
+      anchor:
+        ref: matrix_outer_top
+        shift: [-6, 9]
+      key:
+        name: bumpon-outer-top
+        width: 1
+        height: 1
+    bumpon-outer-bottom:
+      anchor:
+        ref: matrix_outer_bottom
+        shift: [-6, -6]
+      key:
+        name: bumpon-outer-bottom
         width: 1
         height: 1
     ffc6-footprint:
@@ -374,6 +430,28 @@ outlines:
     - name: caseOuterLeft
     - name: caseRightExtensionOuter
       operation: add
+  caseRightExtensionInnerTPS43:
+    - what: rectangle
+      size: [45, 45]
+      corner: 2.5
+      where:
+        - ref: ffc6-footprint
+          shift: [25.7, 15]
+  caseRightExtensionOuterTPS43:
+    - what: rectangle
+      size: [45+caseOuter, 45+caseOuter]
+      corner: 2.5
+      where:
+        - ref: ffc6-footprint
+          shift: [25.7, 15]
+  caseInnerRightTPS43:
+    - name: caseInnerLeft
+    - name: caseRightExtensionInnerTPS43
+      operation: add
+  caseOuterRightTPS43:
+    - name: caseOuterLeft
+    - name: caseRightExtensionOuterTPS43
+      operation: add
   mcu-top-cutout:
     - what: polygon
       operation: stack
@@ -403,6 +481,85 @@ outlines:
     - what: circle
       radius: caseHoleRadius
       where: /.*mount-hole.*/
+  caseHolesSinkLeft:
+    - what: polygon
+      points:
+        - ref: mount-hole-inner-top
+          shift: [2.5, 0]
+        - ref: mount-hole-inner-top
+          shift: [1.25, 2.17]
+        - ref: mount-hole-inner-top
+          shift: [-1.25, 2.17]
+        - ref: mount-hole-inner-top
+          shift: [-2.5, 0]
+        - ref: mount-hole-inner-top
+          shift: [-1.25, -2.17]
+        - ref: mount-hole-inner-top
+          shift: [1.25, -2.17]
+    - what: polygon
+      operation: add
+      points:
+        - ref: mount-hole-inner-bottom
+          shift: [2.5, 0]
+        - ref: mount-hole-inner-bottom
+          shift: [1.25, 2.17]
+        - ref: mount-hole-inner-bottom
+          shift: [-1.25, 2.17]
+        - ref: mount-hole-inner-bottom
+          shift: [-2.5, 0]
+        - ref: mount-hole-inner-bottom
+          shift: [-1.25, -2.17]
+        - ref: mount-hole-inner-bottom
+          shift: [1.25, -2.17]
+    - what: polygon
+      operation: add
+      points:
+        - ref: mount-hole-middle-home
+          shift: [2.5, 0]
+        - ref: mount-hole-middle-home
+          shift: [1.25, 2.17]
+        - ref: mount-hole-middle-home
+          shift: [-1.25, 2.17]
+        - ref: mount-hole-middle-home
+          shift: [-2.5, 0]
+        - ref: mount-hole-middle-home
+          shift: [-1.25, -2.17]
+        - ref: mount-hole-middle-home
+          shift: [1.25, -2.17]
+    - what: polygon
+      operation: add
+      points:
+        - ref: mount-hole-pinky-home
+          shift: [2.5, 0]
+        - ref: mount-hole-pinky-home
+          shift: [1.25, 2.17]
+        - ref: mount-hole-pinky-home
+          shift: [-1.25, 2.17]
+        - ref: mount-hole-pinky-home
+          shift: [-2.5, 0]
+        - ref: mount-hole-pinky-home
+          shift: [-1.25, -2.17]
+        - ref: mount-hole-pinky-home
+          shift: [1.25, -2.17]
+    - what: polygon
+      operation: add
+      points:
+        - ref: mount-hole-pinky-bottom
+          shift: [2.5, 0]
+        - ref: mount-hole-pinky-bottom
+          shift: [1.25, 2.17]
+        - ref: mount-hole-pinky-bottom
+          shift: [-1.25, 2.17]
+        - ref: mount-hole-pinky-bottom
+          shift: [-2.5, 0]
+        - ref: mount-hole-pinky-bottom
+          shift: [-1.25, -2.17]
+        - ref: mount-hole-pinky-bottom
+          shift: [1.25, -2.17]
+  caseHolesBumponLeft:
+    - what: circle
+      radius: 3.15
+      where: /.*bumpon-.*/
   caseCutoutPower:
     - what: rectangle
       size: [4, 10]
@@ -415,6 +572,58 @@ outlines:
       where:
         - ref: reset-switch-footprint
           shift: [-2.8, 0]
+  caseCutoutPowerLP:
+    - what: rectangle
+      size: [7.5, 10]
+      where:
+        - ref: power-switch-footprint
+          shift: [-2.8, 0]
+  caseCutoutResetLP:
+    - what: rectangle
+      size: [7.5, 6]
+      where:
+        - ref: reset-switch-footprint
+          shift: [-2.8, 0]
+  caseSinkDiode:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [3, 5]
+      adjust:
+        shift: [-4, 5]
+  caseSinkSwitchStem:
+    - what: circle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      radius: 2.75
+  caseSinkSwitchPins:
+    - what: rectangle
+      where:
+        - /matrix_.*/
+        - /thumbs_.*/
+      size: [10, 5]
+      adjust:
+        shift: [0, -5.2]
+  caseSinkMcuPins:
+    - what: rectangle
+      where: mcu-footprint
+      size: [34, 7]
+      adjust:
+        shift: [-0.5, 5.75]
+    - what: rectangle
+      where: mcu-footprint
+      size: [34, 7]
+      adjust:
+        shift: [-0.5, -5.75]
+      operation: add
+  caseSinkFfc6:
+    - what: rectangle
+      where: ffc6-footprint
+      size: [15, 11]
+      adjust:
+        shift: [5, 0]
   caseWallRight:
     - name: caseOuterRight
     - name: caseInnerRight
@@ -422,7 +631,7 @@ outlines:
   caseStandoffsRight:
     - what: circle
       radius: caseStandoffRadius
-      where: /.*mount-hole.*/s
+      where: /.*mount-hole.*/
   caseHolesRight:
     - what: circle
       radius: caseHoleRadius
@@ -518,23 +727,56 @@ cases:
   _holesLeft:
     - name: caseHolesLeft
       extrude: 6.5
+  _holesSinkLeft:
+    - name: caseHolesSinkLeft
+      extrude: 2
+  _holesBumponLeft:
+    - name: caseHolesBumponLeft
+      extrude: 0.7
   _standoffsLeft:
     - name: caseStandoffsLeft
       extrude: 6.5
   _bottomLeft:
     - name: caseInnerLeft
       extrude: 1
+  _bottomLeftLP:
+    - name: caseInnerLeft
+      extrude: 3
   _outerWallLeft:
     - name: caseOuterLeft
       extrude: 8.5
   _innerWallLeft:
     - name: caseInnerLeft
       extrude: 8.5
+  _outerWallLeftLP:
+    - name: caseOuterLeft
+      extrude: 7.5
+  _innerWallLeftLP:
+    - name: caseInnerLeft
+      extrude: 7.5
   _caseCutoutPowerLeft:
     - name: caseCutoutPower
       extrude: 6
   _caseCutoutResetLeft:
     - name: caseCutoutReset
+      extrude: 6
+  _caseCutoutPowerLeftLP:
+    - name: caseCutoutPowerLP
+      extrude: 6
+  _caseCutoutResetLeftLP:
+    - name: caseCutoutResetLP
+      extrude: 6
+  _caseSinkDiodeLeft:
+    - name: caseSinkDiode
+      extrude: 6
+  _caseSinkSwitchStemLeft:
+    - name: caseSinkSwitchStem
+      extrude: 6
+  _caseSinkSwitchPinsLeft:
+    - name: caseSinkSwitchPins
+      extrude: 6
+  _caseSinkMcuPinsLeft:
+    - name: caseSinkMcuPins
       extrude: 6
   _wallLeft:
     - what: case
@@ -542,6 +784,13 @@ cases:
       operation: add
     - what: case
       name: _innerWallLeft
+      operation: subtract
+  _wallLeftLP:
+    - what: case
+      name: _outerWallLeftLP
+      operation: add
+    - what: case
+      name: _innerWallLeftLP
       operation: subtract
   LeftCase:
     - what: case
@@ -578,6 +827,46 @@ cases:
     - what: case
       name: _caseCutoutResetLeft
       operation: subtract
+  LeftCaseLP:
+    - what: case
+      name: _bottomLeftLP
+      operation: add
+    - what: case
+      name: _wallLeftLP
+      operation: add
+    - what: case
+      name: _holesLeft
+      operation: subtract
+    - what: case
+      name: _caseCutoutPowerLeftLP
+      operation: subtract
+      shift: [1.5, 0, 0]
+    - what: case
+      name: _caseCutoutResetLeftLP
+      operation: subtract
+      shift: [1.5, 0, 0]
+    - what: case
+      name: _caseSinkDiodeLeft
+      operation: subtract
+      shift: [0, 0, 0.5]
+    - what: case
+      name: _caseSinkSwitchStemLeft
+      operation: subtract
+      shift: [0, 0, 0.5]
+    - what: case
+      name: _caseSinkSwitchPinsLeft
+      operation: subtract
+      shift: [0, 0, 1.5]
+    - what: case
+      name: _caseSinkMcuPinsLeft
+      operation: subtract
+      shift: [0, 0, 1.2]
+    - what: case
+      name: _holesSinkLeft
+      operation: subtract
+    - what: case
+      name: _holesBumponLeft
+      operation: subtract
   ## RIGHT CASE
   _holesRight:
     - name: caseHolesRight
@@ -607,7 +896,7 @@ cases:
     - what: case
       name: _innerWallRight
       operation: subtract
-  RightCase:
+  RightCaseTPS65:
     - what: case
       name: _bottomRight
       operation: add
@@ -623,7 +912,7 @@ cases:
     - what: case
       name: _holesRight
       operation: subtract
-  RightCaseWithM2Standoffs:
+  RightCaseTPS65WithM2Standoffs:
     - what: case
       name: _standoffsRight
       operation: add
@@ -641,6 +930,153 @@ cases:
       operation: subtract
     - what: case
       name: _caseCutoutResetRight
+      operation: subtract
+  _bottomRightLP:
+    - name: caseInnerRight
+      extrude: 3
+  _outerWallRightLP:
+    - name: caseOuterRight
+      extrude: 7.5
+  _innerWallRightLP:
+    - name: caseInnerRight
+      extrude: 7.5
+  _caseCutoutPowerRightLP:
+    - name: caseCutoutPowerLP
+      extrude: 6
+  _caseCutoutResetRightLP:
+    - name: caseCutoutResetLP
+      extrude: 6
+  _caseSinkDiodeRight:
+    - name: caseSinkDiode
+      extrude: 6
+  _caseSinkSwitchStemRight:
+    - name: caseSinkSwitchStem
+      extrude: 6
+  _caseSinkSwitchPinsRight:
+    - name: caseSinkSwitchPins
+      extrude: 6
+  _caseSinkMcuPinsRight:
+    - name: caseSinkMcuPins
+      extrude: 6
+  _caseSinkFfc6Right:
+    - name: caseSinkFfc6
+      extrude: 6
+  _holesSinkRight:
+    - name: caseHolesSinkLeft
+      extrude: 1.5
+  _holesBumponRight:
+    - name: caseHolesBumponLeft
+      extrude: 0.5
+  _wallRightLP:
+    - what: case
+      name: _outerWallRightLP
+      operation: add
+    - what: case
+      name: _innerWallRightLP
+      operation: subtract
+  RightCaseLPTPS65:
+    - what: case
+      name: _bottomRightLP
+      operation: add
+    - what: case
+      name: _wallRightLP
+      operation: add
+    - what: case
+      name: _holesRight
+      operation: subtract
+    - what: case
+      name: _caseCutoutPowerRightLP
+      operation: subtract
+      shift: [1.5, 0, 0]
+    - what: case
+      name: _caseCutoutResetRightLP
+      operation: subtract
+      shift: [1.5, 0, 0]
+    - what: case
+      name: _caseSinkDiodeRight
+      operation: subtract
+      shift: [0, 0, 0.5]
+    - what: case
+      name: _caseSinkSwitchStemRight
+      operation: subtract
+      shift: [0, 0, 0.5]
+    - what: case
+      name: _caseSinkSwitchPinsRight
+      operation: subtract
+      shift: [0, 0, 1.5]
+    - what: case
+      name: _caseSinkMcuPinsRight
+      operation: subtract
+      shift: [0, 0, 1.2]
+    - what: case
+      name: _caseSinkFfc6Right
+      operation: subtract
+      shift: [0, 0, 0.8]
+    - what: case
+      name: _holesSinkRight
+      operation: subtract
+    - what: case
+      name: _holesBumponRight
+      operation: subtract
+  _bottomRightLPTPS43:
+    - name: caseInnerRightTPS43
+      extrude: 3
+  _outerWallRightLPTPS43:
+    - name: caseOuterRightTPS43
+      extrude: 7.5
+  _innerWallRightLPTPS43:
+    - name: caseInnerRightTPS43
+      extrude: 7.5
+  _wallRightLPTPS43:
+    - what: case
+      name: _outerWallRightLPTPS43
+      operation: add
+    - what: case
+      name: _innerWallRightLPTPS43
+      operation: subtract
+  RightCaseLPTPS43:
+    - what: case
+      name: _bottomRightLPTPS43
+      operation: add
+    - what: case
+      name: _wallRightLPTPS43
+      operation: add
+    - what: case
+      name: _holesRight
+      operation: subtract
+    - what: case
+      name: _caseCutoutPowerRightLP
+      operation: subtract
+      shift: [1.5, 0, 0]
+    - what: case
+      name: _caseCutoutResetRightLP
+      operation: subtract
+      shift: [1.5, 0, 0]
+    - what: case
+      name: _caseSinkDiodeRight
+      operation: subtract
+      shift: [0, 0, 0.5]
+    - what: case
+      name: _caseSinkSwitchStemRight
+      operation: subtract
+      shift: [0, 0, 0.5]
+    - what: case
+      name: _caseSinkSwitchPinsRight
+      operation: subtract
+      shift: [0, 0, 1.5]
+    - what: case
+      name: _caseSinkMcuPinsRight
+      operation: subtract
+      shift: [0, 0, 1.2]
+    - what: case
+      name: _caseSinkFfc6Right
+      operation: subtract
+      shift: [0, 0, 1.2]
+    - what: case
+      name: _holesSinkRight
+      operation: subtract
+    - what: case
+      name: _holesBumponRight
       operation: subtract
 
 pcbs:
