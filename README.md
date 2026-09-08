@@ -50,5 +50,7 @@ ergogen . && npx @jscad/cli@1 output/cases/LeftCase.jscad -of stla
 For 3d printed  case:
 * top-foam-plate: 1mm thick, cut 15mm/s 90%
 * bottom-foam-plate: 3mm thick, cut 12mm/s 90% 2 passes
+* touchpad-overlay-tps43 sticker: Tenstickers brand vinyl, cut 10mm/s 80% power on a 10W laser
+* touchpad-overlay-tps65 sticker: Tenstickers brand vinyl, cut 10mm/s 80% power on a 10W laser
 
 ### TODO
